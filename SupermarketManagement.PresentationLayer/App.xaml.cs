@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using Supermarketmanagement.Core.ViewModels;
+using SupermarketManagement.BLL;
+using SupermarketManagement.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

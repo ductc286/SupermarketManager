@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketManagement.DataA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleToTest", "ConsoleToTest\ConsoleToTest.csproj", "{2A6BCADD-B320-47EA-B78B-23211AD8564F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketManagement.BLL", "SupermarketManagement.BLL\SupermarketManagement.BLL.csproj", "{5C5F3A8B-43E8-418F-903C-2C25AAFE6B60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2A6BCADD-B320-47EA-B78B-23211AD8564F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A6BCADD-B320-47EA-B78B-23211AD8564F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A6BCADD-B320-47EA-B78B-23211AD8564F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5F3A8B-43E8-418F-903C-2C25AAFE6B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5F3A8B-43E8-418F-903C-2C25AAFE6B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5F3A8B-43E8-418F-903C-2C25AAFE6B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5F3A8B-43E8-418F-903C-2C25AAFE6B60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
