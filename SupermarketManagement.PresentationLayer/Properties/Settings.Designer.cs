@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SupermarketManager.PresentationLayer.Properties
+namespace SupermarketManagement.PresentationLayer.Properties
 {
 
 
