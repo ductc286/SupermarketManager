@@ -9,6 +9,5 @@ namespace Supermarketmanagement.PresentationLayer.Windows
     public static class StringConstants
     {
         public const string APPLICATION_NAME = "Quản lý siêu thị TCD";
-        public static string MyString { get { return "SomeConstant"; } }
     }
 }

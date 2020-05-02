@@ -16,20 +16,28 @@ namespace Supermarketmanagement.PresentationLayer.Windows
         {
             InitializeComponent();
             _staffBusiness = new StaffBusiness();
+            _loginStaffViewModel = new LoginStaffViewModel() { AcceptValidModel = false };
             this.DataContext = _loginStaffViewModel;
         }
 
         private void Login(object sender, RoutedEventArgs e)
         {
             _loginStaffViewModel = (LoginStaffViewModel)this.DataContext;
-            var currentStaff = _staffBusiness.GetStaffViewModel(_loginStaffViewModel);
-            if (currentStaff == null)
+            if (_loginStaffViewModel.IsValidModel())
             {
-                MessageBox.Show("Đăng nhập không thành công");
+                var currentStaff = _staffBusiness.GetStaffViewModel(_loginStaffViewModel);
+                if (currentStaff == null)
+                {
+                    MessageBox.Show("Đăng nhập không thành công", "Login", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Đăng nhập thành công", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             else
             {
-                MessageBox.Show("thanh cong");
+                MessageBox.Show("Dữ liệu không hợp lệ!", "Login", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
