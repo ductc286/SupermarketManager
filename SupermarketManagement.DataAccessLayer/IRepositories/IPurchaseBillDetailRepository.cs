@@ -3,7 +3,7 @@ using SupermarketManagement.DataAccessLayer.GenericRepository;
 
 namespace SupermarketManagement.DataAccessLayer.IRepositories
 {
-    public interface ISupplier : IGenericRepository<Supplier>
+    public interface IPurchaseBillDetailRepository : IGenericRepository<PurchaseBillDetail>
     {
     }
 

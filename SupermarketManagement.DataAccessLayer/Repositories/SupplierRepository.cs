@@ -4,7 +4,7 @@ using SupermarketManagement.DataAccessLayer.IRepositories;
 
 namespace SupermarketManagement.DataAccessLayer.Repositories
 {
-    public class SupplierRepository : GenericRepository<Supplier>, ISupplier
+    public class SupplierRepository : GenericRepository<Supplier>, ISupplierRepository
     {
     }
 

@@ -3,7 +3,7 @@ using SupermarketManagement.DataAccessLayer.GenericRepository;
 
 namespace SupermarketManagement.DataAccessLayer.IRepositories
 {
-    public interface IEndOfShift : IGenericRepository<EndOfShift>
+    public interface IProductRepository : IGenericRepository<Product>
     {
     }
 

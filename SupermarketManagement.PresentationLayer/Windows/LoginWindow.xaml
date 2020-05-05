@@ -19,12 +19,11 @@
                 Content="Tài khoản"
                 />
             <TextBox 
-                Style="{StaticResource error-myself}"
+                Style="{StaticResource Error-Myself}"
                 Name="Account"
                 Text="{Binding Path=Account, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
-                
                 />
-            <TextBlock Text="{Binding ErrorCollection[Account]}"  Style="{StaticResource error-notify}" />
+            <TextBlock Text="{Binding ErrorCollection[Account]}"  Style="{StaticResource Error-Notify}" />
             <Label
                 Style="{StaticResource Form-Label}"
                 Content="Mật khẩu"
@@ -34,7 +33,7 @@
                 Name="Password"
                 Text="{Binding Password, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
                 />
-            <TextBlock Text="{Binding ErrorCollection[Password]}"  Style="{StaticResource error-notify}" />
+            <TextBlock Text="{Binding ErrorCollection[Password]}"  Style="{StaticResource Error-Notify}" />
             <Button
                 Style="{StaticResource Form-Button}"
                 Click="Login"

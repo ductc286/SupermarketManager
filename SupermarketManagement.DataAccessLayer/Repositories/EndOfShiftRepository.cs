@@ -4,7 +4,7 @@ using SupermarketManagement.DataAccessLayer.IRepositories;
 
 namespace SupermarketManagement.DataAccessLayer.Repositories
 {
-    public class EndOfShiftRepository : GenericRepository<EndOfShift>, IEndOfShift
+    public class EndOfShiftRepository : GenericRepository<EndOfShift>, IEndOfShiftRepository
     {
     }
 

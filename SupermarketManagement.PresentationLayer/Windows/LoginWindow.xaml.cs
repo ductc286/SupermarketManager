@@ -32,7 +32,12 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 }
                 else
                 {
+                    StaffGlobal.CurrentStaff = currentStaff;
                     MessageBox.Show("Đăng nhập thành công", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MainManagementWindow mainManagementWindow = new MainManagementWindow();
+                    this.Hide();
+                    mainManagementWindow.Show();
+                    this.Close();
                 }
             }
             else

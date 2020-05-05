@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Supermarketmanagement.PresentationLayer.UserControls.DetailSupplierUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Mã nhà phân phối"/>
+        <TextBlock 
+            Style="{StaticResource Form-TextBlock}"
+            Text="{Binding Path=SupplierId}"/>
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Tên nhà phân phối"/>
+        <TextBlock 
+            Style="{StaticResource Form-TextBlock}"
+            Text="{Binding Path=SupplierName}"/>
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Miêu tả"/>
+        <TextBlock 
+            Style="{StaticResource Form-TextBlock}"
+            Text="{Binding Path=Description}"/>
+        <Button
+            Style="{StaticResource Form-Button}"
+            Click="Edit_Click"
+            >Sửa</Button>
+            
+    </StackPanel>
+</UserControl>

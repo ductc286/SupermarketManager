@@ -4,7 +4,7 @@ using SupermarketManagement.DataAccessLayer.IRepositories;
 
 namespace SupermarketManagement.DataAccessLayer.Repositories
 {
-    public class PurchaseBillRepository : GenericRepository<PurchaseBill>, IPurchaseBill
+    public class PurchaseBillRepository : GenericRepository<PurchaseBill>, IPurchaseBillRepository
     {
     }
 

@@ -4,7 +4,7 @@ using SupermarketManagement.DataAccessLayer.IRepositories;
 
 namespace SupermarketManagement.DataAccessLayer.Repositories
 {
-    public class CategoryRepository : GenericRepository<Category>, ICategory
+    public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
     }
 

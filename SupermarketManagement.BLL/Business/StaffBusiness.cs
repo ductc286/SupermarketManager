@@ -5,6 +5,9 @@ using SupermarketManagement.DataAccessLayer.Repositories;
 
 namespace SupermarketManagement.BLL.Business
 {
+    /// <summary>
+    /// Logical processing, interacting with views and models, the main object is Staff
+    /// </summary>
     public class StaffBusiness : IStaffBusiness
     {
         private readonly IStaffRepository _staffRepository;
@@ -13,7 +16,7 @@ namespace SupermarketManagement.BLL.Business
             _staffRepository = new StaffRepository();
         }
 
-        public StaffViewModel GetStaffViewModel(LoginStaffViewModel loginStaffViewModel)
+        public CurrentStaffViewModel GetStaffViewModel(LoginStaffViewModel loginStaffViewModel)
         {
             var staff = _staffRepository.Find(filter: s => s.Account == loginStaffViewModel.Account && s.PasswordHash == loginStaffViewModel.Password);
             //StaffViewModel staffViewModel = Mapper.Map<StaffViewModel>(staff);
@@ -21,16 +24,10 @@ namespace SupermarketManagement.BLL.Business
             {
                 return null;
             }
-            var staffViewModel = new StaffViewModel()
+            var staffViewModel = new CurrentStaffViewModel()
             {
                 StaffId = staff.StaffId,
                 Account = staff.Account,
-                FullName = staff.FullName,
-                Email = staff.Email,
-                CreatedDate = staff.CreatedDate,
-                Note = staff.Note,
-                IsActive = staff.IsActive,
-                PhoneNumber = staff.PhoneNumber,
                 StaffRole = staff.StaffRole
             };
             return staffViewModel;

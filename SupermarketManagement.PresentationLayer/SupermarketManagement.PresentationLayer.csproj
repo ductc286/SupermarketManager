@@ -72,16 +72,82 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Utilities\Contt.cs" />
+    <Compile Include="Common\TabControlManagement.cs" />
+    <Compile Include="Custom\CloseableHeader.xaml.cs">
+      <DependentUpon>CloseableHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\CustomTabItem.cs" />
+    <Compile Include="UserControls\AddProductUserControl.xaml.cs">
+      <DependentUpon>AddProductUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddSupplierUserControl.xaml.cs">
+      <DependentUpon>AddSupplierUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DetailSupplierUserControl.xaml.cs">
+      <DependentUpon>DetailSupplierUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EditSupplierUserControl.xaml.cs">
+      <DependentUpon>EditSupplierUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ListProductUserControl.xaml.cs">
+      <DependentUpon>ListProductUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ListSupplierUserControl.xaml.cs">
+      <DependentUpon>ListSupplierUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ManageSupplierUserControl.xaml.cs">
+      <DependentUpon>ManageSupplierUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MainManagementWindow.xaml.cs">
+      <DependentUpon>MainManagementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\StaffGlobal.cs" />
     <Compile Include="Windows\StringConstants.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Windows\UsecaseStringContants.cs" />
+    <Page Include="Custom\CloseableHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddProductUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddSupplierUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DetailSupplierUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\EditSupplierUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ListProductUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ListSupplierUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ManageSupplierUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainManagementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,8 +180,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Custom\" />
-    <Folder Include="UserControls\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SupermarketManagement.BLL\SupermarketManagement.BLL.csproj">

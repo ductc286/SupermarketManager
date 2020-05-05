@@ -9,6 +9,6 @@ namespace SupermarketManagement.BLL.IBusiness
 {
     public interface IStaffBusiness
     {
-        StaffViewModel GetStaffViewModel(LoginStaffViewModel loginStaffViewModel);
+        CurrentStaffViewModel GetStaffViewModel(LoginStaffViewModel loginStaffViewModel);
     }
 }
