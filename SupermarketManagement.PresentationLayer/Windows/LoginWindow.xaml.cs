@@ -1,4 +1,5 @@
-﻿using Supermarketmanagement.Core.ViewModels;
+﻿using Supermarketmanagement.Core.Common;
+using Supermarketmanagement.Core.ViewModels;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
 using System.Windows;

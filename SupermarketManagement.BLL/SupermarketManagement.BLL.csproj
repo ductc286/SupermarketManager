@@ -45,10 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBusiness\IBaseActionOfObject.cs" />
+    <Compile Include="Business\CategoryBusiness.cs" />
     <Compile Include="Business\ProductBusiness.cs" />
+    <Compile Include="Business\PurchaseBillBusiness.cs" />
+    <Compile Include="Business\SaleBillBusiness.cs" />
     <Compile Include="Business\StaffBusiness.cs" />
     <Compile Include="Business\SupplierBusiness.cs" />
+    <Compile Include="IBusiness\ICategoryBusiness.cs" />
     <Compile Include="IBusiness\IProductBusiness.cs" />
+    <Compile Include="IBusiness\IPurchaseBillBusiness.cs" />
+    <Compile Include="IBusiness\ISaleBillBusiness.cs" />
     <Compile Include="IBusiness\IStaffBusiness.cs" />
     <Compile Include="IBusiness\ISupplierBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

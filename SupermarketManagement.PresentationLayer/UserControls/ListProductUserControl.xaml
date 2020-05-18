@@ -6,43 +6,63 @@
              xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Top"
              >
-    <StackPanel>
-        <ListView HorizontalAlignment="Left" Name="ListViewProducts">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Background" Value="AliceBlue" />
-                    <Setter Property="BorderBrush" Value="BlanchedAlmond" />
-                    <Setter Property="BorderThickness" Value="2" />
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="Red" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn  Header="Mã sản phẩm"  DisplayMemberBinding="{Binding ProductId}"/>
-                    <GridViewColumn Header="Mã Seri"  DisplayMemberBinding="{Binding Serial}" />
-                    <GridViewColumn Header="Tên sản phẩm"  DisplayMemberBinding="{Binding ProductName}" />
-                    <GridViewColumn Header="Thể loại"  DisplayMemberBinding="{Binding Category.CategoryName}" />
-                    <GridViewColumn Header="Nhà cung cấp"  DisplayMemberBinding="{Binding Supplier.SupplierName}" />
-                    <GridViewColumn Header="Giá"  DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Đã bán"  DisplayMemberBinding="{Binding Sold}" />
-                    <GridViewColumn Header="Tồn kho"  DisplayMemberBinding="{Binding Inventory}" />
-                    <GridViewColumn Header="Đơn vị"  DisplayMemberBinding="{Binding Unit}" />
-                    <GridViewColumn Header="Trạng thái" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox Margin="5, 0" IsChecked="{Binding IsActive}" IsEnabled="False" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Ghi chú"  DisplayMemberBinding="{Binding Note}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
+            <ListView HorizontalAlignment="Left" Name="ListViewProducts">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="AliceBlue" />
+                        <Setter Property="BorderBrush" Value="BlanchedAlmond" />
+                        <Setter Property="BorderThickness" Value="2" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn  Header="Mã sản phẩm"  DisplayMemberBinding="{Binding ProductId}"/>
+                        <GridViewColumn Header="Mã Seri"  DisplayMemberBinding="{Binding Serial}" />
+                        <GridViewColumn Header="Tên sản phẩm"  DisplayMemberBinding="{Binding ProductName}" />
+                        <GridViewColumn Header="Thể loại"  DisplayMemberBinding="{Binding Category.CategoryName}" />
+                        <GridViewColumn Header="Nhà cung cấp"  DisplayMemberBinding="{Binding Supplier.SupplierName}" />
+                        <GridViewColumn Header="Giá"  DisplayMemberBinding="{Binding Price}" />
+                        <GridViewColumn Header="Đã bán"  DisplayMemberBinding="{Binding Sold}" />
+                        <GridViewColumn Header="Tồn kho"  DisplayMemberBinding="{Binding Inventory}" />
+                        <GridViewColumn Header="Đơn vị"  DisplayMemberBinding="{Binding Unit}" />
+                        <GridViewColumn Header="Trạng thái" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox Margin="5, 0" IsChecked="{Binding IsActive}" IsEnabled="False" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Ghi chú"  DisplayMemberBinding="{Binding Note}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+        
+        <StackPanel Grid.Row="1" Margin="0,10,0,0"  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Button
+                Style="{StaticResource Form-Button}"
+                Click="Edit_Click"
+            >Sửa</Button>
+            <Button Style="{StaticResource Form-Button}">Xóa</Button>
 
-    </StackPanel>
+        </StackPanel>
+        
+    </Grid>
 </UserControl>

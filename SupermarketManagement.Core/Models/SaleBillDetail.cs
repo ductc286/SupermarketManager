@@ -9,7 +9,7 @@ namespace SupermarketManagement.Core.Models
         [MaxLength(255)]
         public string Id { get; set; }
 
-        public int SaleBillId { get; set; }
+        public string SaleBillId { get; set; }
 
         public int ProductId { get; set; }
 

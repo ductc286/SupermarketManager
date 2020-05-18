@@ -1,0 +1,63 @@
+﻿<Window x:Class="Supermarketmanagement.PresentationLayer.Windows.SalesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.Windows"
+        
+        mc:Ignorable="d"
+        Title="SalesWindow" Height="450" Width="800">
+    <DockPanel LastChildFill="True">
+
+        <Menu DockPanel.Dock="Top" Padding="5">
+            <MenuItem Header="Home"></MenuItem>
+            <MenuItem Header="Quản lý đơn bán hàng">
+                <MenuItem Header="{x:Static local:UsecaseStringContants.addSaleBill}" Click="MenuAddSaleBill_Click" />
+                <Separator  />
+                <MenuItem Header="{x:Static local:UsecaseStringContants.listSaleBill}" Click="MenuListSaleBill_Click" />
+
+            </MenuItem>
+            <MenuItem Header="Phiếu chốt ca làm việc">
+                <MenuItem Header="Thêm" Click="MenuAddEndOfShift_Click" />
+                <Separator  />
+                <MenuItem  Header="Xem danh sách"  Click="MenuListEndOfShift_Click" />
+            </MenuItem>
+            
+        </Menu>
+        <ToolBar DockPanel.Dock="Top">
+            <Label>ToolBar: Chức năng này sẽ sớm hoàn thành!</Label>
+        </ToolBar>
+        <DockPanel DockPanel.Dock="Top"  LastChildFill="True"  Background="PaleTurquoise" Height="600">
+            <StackPanel DockPanel.Dock="Left" Width="200" Background="White">
+                <Label>Phần left menu</Label>
+            </StackPanel>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <StackPanel DockPanel.Dock="Right" >
+
+                    <Label FontSize="14" Name="CurrenTabTitle" Background="SkyBlue">Tiêu đê tab hiện tại( main conten)</Label>
+                    <TabControl  Name="MainTabControl"
+                                 HorizontalContentAlignment="Center"
+                             Height="570"
+                             Background="SkyBlue">
+                    </TabControl>
+                </StackPanel>
+            </ScrollViewer>
+
+        </DockPanel>
+
+        <DockPanel LastChildFill="True" Margin="0 0 0 0"  DockPanel.Dock="Bottom"  Background="AliceBlue">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="Phần mềm quản lý siêu thị @coppy 2020" Foreground="#FFF74141" Padding="30 0 0 0"/>
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Hỗ trợ: 0123456789" Foreground="#FFF74141"/>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="Admin-default" Name="Account" />
+                <TextBlock Grid.Column="3" VerticalAlignment="Center"  Padding="0 0 30 0" Name="CurrentDate">01/01/2020</TextBlock>
+            </Grid>
+        </DockPanel>
+    </DockPanel>
+</Window>

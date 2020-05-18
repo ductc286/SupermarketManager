@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SupermarketManagement.DataAccessLayer.GenericRepository
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         #region Fields
         protected MyDBContext MyContext;
@@ -44,7 +44,7 @@ namespace SupermarketManagement.DataAccessLayer.GenericRepository
             var changeCount = MyContext.SaveChanges();
             return changeCount > 0;
         }
-        public bool AddRange(IEnumerable<TEntity> entities)
+        public virtual bool AddRange(IEnumerable<TEntity> entities)
         {
             if (entities == null)
             {
@@ -88,7 +88,7 @@ namespace SupermarketManagement.DataAccessLayer.GenericRepository
             var changeCount = MyContext.SaveChanges();
             return changeCount > 0;
         }
-        public bool DeleteRange(IEnumerable<TEntity> entities)
+        public virtual bool DeleteRange(IEnumerable<TEntity> entities)
         {
             if (entities == null)
             {

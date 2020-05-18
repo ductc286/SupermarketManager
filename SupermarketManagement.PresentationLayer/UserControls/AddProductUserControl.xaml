@@ -4,9 +4,90 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
+             xmlns:customTextBox="clr-namespace:Supermarketmanagement.PresentationLayer.Custom"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <Label></Label>
+    <StackPanel Margin="0,0,0,-122">
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Mã Seri"/>
+        <TextBox 
+            Style="{StaticResource Form-TextBox}"
+            Name="Serial"
+            Text="{Binding Path=Serial, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[Serial]}"  Style="{StaticResource Error-Notify}" />
+
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Tên sản phẩm"/>
+        <TextBox 
+            Style="{StaticResource Form-TextBox}"
+            Name="ProductName"
+            Text="{Binding Path=ProductName, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[ProductName]}"  Style="{StaticResource Error-Notify}" />
+        
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Nhà phân phối"/>
+        <ComboBox  Name="ComboBoxSuppliers" Style="{StaticResource Form-ComboBox}" SelectionChanged="ComboBoxSuppliers_Changed">
+
+        </ComboBox>
+        <TextBox 
+            Style="{StaticResource TextBox-Hidden}"
+            Name="SupplierId"
+            Text="{Binding Path=SupplierId, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <!--<TextBlock Text="{Binding ErrorCollection[SupplierId]}"  Style="{StaticResource Error-Notify}" />-->
+
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Thể loại"/>
+        <ComboBox  Name="ComboBoxCategories" Style="{StaticResource Form-ComboBox}" SelectionChanged="ComboBoxCategories_Changed" >
+            
+        </ComboBox>
+        <TextBox
+            Style="{StaticResource TextBox-Hidden}"
+            Name="CategoryId"
+            Text="{Binding Path=CategoryId, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <!--<TextBlock Text="{Binding ErrorCollection[CategoryId]}"  Style="{StaticResource Error-Notify}" />-->
+
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Left" Width="400">
+                <Label
+            Style="{StaticResource Form-Label}"
+            Content="Giá"/>
+                <customTextBox:CustomTextBox 
+            Style="{StaticResource Form-TextBox}"
+            x:Name="Price"
+            Text="{Binding Path=Price, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding ErrorCollection[Price]}"  Style="{StaticResource Error-Notify}" />
+            </StackPanel>
+
+            <StackPanel DockPanel.Dock="Right">
+                <Label
+            Style="{StaticResource Form-Label}"
+            Content="Đơn vị"/>
+                <TextBox 
+            Style="{StaticResource Form-TextBox}"
+            Name="Unit"
+            Text="{Binding Path=Unit, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding ErrorCollection[Unit]}"  Style="{StaticResource Error-Notify}" />
+            </StackPanel>
+            
+
+        </DockPanel>
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Ghi chú"/>
+        <TextBox 
+            Style="{StaticResource Form-TextBox-MultipleLines}"
+            Name="Note"
+            Text="{Binding Path=Note, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[Note]}"  Style="{StaticResource Error-Notify}" />
+        
+        
+        <Button
+            Style="{StaticResource Form-Button}"
+            Click="Add_Click"
+            >Thêm</Button>
     </StackPanel>
 </UserControl>

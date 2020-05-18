@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\StaffGlobal.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\EndOfShift.cs" />
     <Compile Include="Models\Product.cs" />
@@ -66,10 +67,19 @@
     <Compile Include="Models\StaffRole.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\IdUtilities.cs" />
+    <Compile Include="Utilities\MoneyUtilities.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CurrentStaffViewModel.cs" />
     <Compile Include="ViewModels\LoginStaffViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseBillDetailViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseBillViewModel.cs" />
+    <Compile Include="ViewModels\SaleBillDetailViewModel.cs" />
+    <Compile Include="ViewModels\SaleBillViewModel.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\SupplierViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

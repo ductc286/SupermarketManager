@@ -1,6 +1,9 @@
-﻿using SupermarketManagement.BLL.Business;
+﻿using Supermarketmanagement.PresentationLayer.Windows;
+using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
-using System;
+using SupermarketManagement.Core.Models;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Supermarketmanagement.PresentationLayer.UserControls
@@ -11,10 +14,13 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     public partial class ListProductUserControl : UserControl
     {
         private readonly IProductBusiness _productBusiness;
+        public List<Product> products;
+
         public ListProductUserControl()
         {
-            _productBusiness = new ProductBusiness();
             InitializeComponent();
+            _productBusiness = new ProductBusiness();
+            products = _productBusiness.GetAll();
             InitializeData();
         }
 
@@ -23,13 +29,32 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
-            LoadListProduct();
+            LoadListProduct(products);
         }
 
-        private void LoadListProduct()
+        private void LoadListProduct(List<Product> products)
         {
-            var listProducts = _productBusiness.GetAll();
-            ListViewProducts.ItemsSource = listProducts;
+            ListViewProducts.ItemsSource = products;
+            
+        }
+
+        private void Edit_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            
+            var product = (Product)ListViewProducts.SelectedItem;
+            if (product == null)
+            {
+                MessageBox.Show("Vui lòng chọn một mục trong danh sách!", "Edit", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                EditProductWindow editProductWindow = new EditProductWindow(product);
+                editProductWindow.Owner = Application.Current.MainWindow; // We must also set the owner for this to work.
+                editProductWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                //editProductWindow.Top = mainWindow.Top + 20;
+
+                editProductWindow.Show();
+            }
         }
     }
 }

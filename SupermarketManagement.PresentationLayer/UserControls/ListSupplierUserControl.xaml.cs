@@ -1,5 +1,9 @@
-﻿using SupermarketManagement.BLL.Business;
+﻿using Supermarketmanagement.PresentationLayer.Windows;
+using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
+using SupermarketManagement.Core.Models;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Supermarketmanagement.PresentationLayer.UserControls
@@ -10,10 +14,12 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     public partial class ListSupplierUserControl : UserControl
     {
         private readonly ISupplierBusiness _supplierBusiness;
+        public List<Supplier> suppliers;
         public ListSupplierUserControl()
         {
-            _supplierBusiness = new SupplierBusiness();
             InitializeComponent();
+            _supplierBusiness = new SupplierBusiness();
+            suppliers = _supplierBusiness.GetAll();
             InitializeData();
         }
 
@@ -22,13 +28,27 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
-            LoadList();
+            LoadList(suppliers);
         }
 
-        private void LoadList()
+        public void LoadList(List<Supplier> suppliers)
         {
-            var listProducts = _supplierBusiness.GetAll();
-            ListSuppliers.ItemsSource = listProducts;
+            ListSuppliers.ItemsSource = suppliers;
+            
+        }
+
+        private void OpenWindow_Edit(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var supplier = (Supplier)ListSuppliers.SelectedItem;
+            if (supplier == null)
+            {
+                MessageBox.Show("Vui lòng chọn một mục trong danh sách!", "Edit", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                EditSupplierWindow editSupplierWindow = new EditSupplierWindow(supplier);
+                editSupplierWindow.Show();
+            }
         }
     }
 }

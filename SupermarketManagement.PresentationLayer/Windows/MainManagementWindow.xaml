@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.Windows"
+        xmlns:constants="clr-namespace:Supermarketmanagement.PresentationLayer.Windows;assembly=UsecaseStringContants"
+        xmlns:common="clr-namespace:Supermarketmanagement.Core.Common;assembly=StaffGlobal"
+        
         mc:Ignorable="d"
         MinHeight="{Binding SystemParameters.PrimaryScreenHeigth}" 
         MinWidth="{Binding SystemParameters.PrimaryScreenWidth}"
         ResizeMode="CanResizeWithGrip"
         Width="1300"
-        Height="700"
+        Height="800"
         Title="MainManagementWindow" >
 
     <DockPanel LastChildFill="True">
@@ -19,7 +22,7 @@
             <MenuItem Header="Quản lý sản phẩm">
                 <MenuItem Header="Thêm" Click="MenuAddProduct_Click" />
                 <Separator  />
-                <MenuItem Name="AddProduct" Header="Xem danh sách" Click="MenuListProduct_Click" />
+                <MenuItem Header="Xem danh sách" Click="MenuListProduct_Click" />
                 
             </MenuItem>
             <MenuItem Header="Quản lý nhà cung cấp">
@@ -27,8 +30,16 @@
                 <Separator  />
                 <MenuItem  Header="Xem danh sách"  Click="MenuListSuplier" />
             </MenuItem>
-            <MenuItem Header="Quản lý Thể loại"></MenuItem>
-            <MenuItem Header="Quản lý nhập hàng"></MenuItem>
+            <MenuItem Header="Quản lý Thể loại">
+                <MenuItem Header="Thêm Thể loại" Click="MenuAddCategory_Click" />
+                <Separator  />
+                <MenuItem  Header="Xem danh sách"  Click="MenuListCategory_Click" />
+            </MenuItem>
+            <MenuItem Header="Quản lý nhập hàng">
+                <MenuItem  Header="{x:Static local:UsecaseStringContants.addPurchaseBill}"  Click="MenuAddPurchaseBill" />
+                <MenuItem  Header="{x:Static local:UsecaseStringContants.listPurchaseBill}"  Click="MenuListPurchaseBill" />
+                
+            </MenuItem>
             <MenuItem Header="Quản lý bán hàng"></MenuItem>
             <MenuItem Header="Phê duyệt ca làm việc"></MenuItem>
             <MenuItem Header="Thống kê"></MenuItem>
@@ -40,17 +51,33 @@
             <StackPanel DockPanel.Dock="Left" Width="200" Background="White">
                 <Label>Phần left menu</Label>
             </StackPanel>
-            <StackPanel DockPanel.Dock="Right"  >
-                <Label FontSize="14" Name="CurrenTabTitle" Background="SkyBlue">Tiêu đê tab hiện tại( main conten)</Label>
-                <TabControl  Name="MainTabControl" Height="600" Background="SkyBlue">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <StackPanel DockPanel.Dock="Right" >
 
-                </TabControl>
-            </StackPanel>
+                    <Label FontSize="14" Name="CurrenTabTitle" Background="SkyBlue">Tiêu đê tab hiện tại( main conten)</Label>
+                    <TabControl  Name="MainTabControl"
+                                 HorizontalContentAlignment="Center"
+                             Height="570"
+                             Background="SkyBlue">
+                    </TabControl>
+                </StackPanel>
+            </ScrollViewer>
+            
         </DockPanel>
-        
-        <DockPanel VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
-            <Label Width="200" DockPanel.Dock="Right">01/01/2020</Label>
-            <TextBlock Width="50" DockPanel.Dock="Right" Text="{x:Static local:StaffGlobal.Account}" />
+
+        <DockPanel LastChildFill="True" Margin="0 0 0 0"  DockPanel.Dock="Bottom"  Background="AliceBlue">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="Phần mềm quản lý siêu thị @coppy 2020" Foreground="#FFF74141" Padding="30 0 0 0"/>
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Hỗ trợ: 0123456789" Foreground="#FFF74141"/>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="Admin-default" Name="Account" />
+                <TextBlock Grid.Column="3" VerticalAlignment="Center"  Padding="0 0 30 0" Name="CurrentDate">01/01/2020</TextBlock>
+            </Grid>
         </DockPanel>
     </DockPanel>
 </Window>

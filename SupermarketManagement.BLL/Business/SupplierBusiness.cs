@@ -1,4 +1,5 @@
-﻿using SupermarketManagement.BLL.IBusiness;
+﻿using Supermarketmanagement.Core.ViewModels;
+using SupermarketManagement.BLL.IBusiness;
 using SupermarketManagement.Core.Models;
 using SupermarketManagement.DataAccessLayer.IRepositories;
 using SupermarketManagement.DataAccessLayer.Repositories;
@@ -18,9 +19,19 @@ namespace SupermarketManagement.BLL.Business
             _supplierRepository = new SupplierRepository();
         }
 
-        public bool Add(Supplier entity)
+        public bool Add(SupplierViewModel entity)
         {
-            return _supplierRepository.Add(entity);
+            if (entity == null)
+            {
+                return false;
+            }
+            var supplier = new Supplier()
+            {
+                SupplierName = entity.SupplierName,
+                Description = entity.Description
+            };
+
+            return _supplierRepository.Add(supplier);
         }
 
         public bool Delete(object id)
@@ -44,9 +55,20 @@ namespace SupermarketManagement.BLL.Business
             return _supplierRepository.GetAll().ToList();
         }
 
-        public bool Update(Supplier entity)
+        public bool Update(SupplierViewModel entity)
         {
-            return _supplierRepository.Update(entity);
+            if (entity == null)
+            {
+                return false;
+            }
+            var foundSupplier = _supplierRepository.GetById(entity.SupplierId);
+            if (foundSupplier == null)
+            {
+                return false;
+            }
+            foundSupplier.SupplierName = entity.SupplierName;
+            foundSupplier.Description = entity.Description;
+            return _supplierRepository.Update(foundSupplier);
         }
     }
 }

@@ -1,0 +1,172 @@
+﻿<UserControl x:Class="Supermarketmanagement.PresentationLayer.UserControls.DetailPurchaseBillUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
+             xmlns:customTextBox="clr-namespace:Supermarketmanagement.PresentationLayer.Custom"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <Label
+            Style="{StaticResource Form-Label}"
+            Content="Nhà cung cấp"/>
+
+             <TextBlock 
+            Style="{StaticResource Form-TextBlock}"
+            Name="SupplierId"
+            Text="{Binding Path=SupplierId, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <!--<TextBlock Text="{Binding ErrorCollection[SupplierId]}"  Style="{StaticResource Error-Notify}" />-->
+
+                <Label
+            Style="{StaticResource Form-Label}"
+            Content="Ghi chú"/>
+                <TextBox 
+            Style="{StaticResource Form-TextBox-MultipleLines}"
+            Name="Note"
+            IsReadOnly="True"
+            Text="{Binding Path=Note, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding ErrorCollection[Note]}"  Style="{StaticResource Error-Notify}" />
+
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0">
+                        <Label
+                        Style="{StaticResource Form-Label}"
+                        Content="Chiết khấu"/>
+                        <TextBlock 
+                        Style="{StaticResource Form-TextBlock}"
+                        x:Name="Discount"
+                        Text="{Binding Path=Discount, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{Binding ErrorCollection[Discount]}"  Style="{StaticResource Error-Notify}" />
+
+
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="1">
+                        <Label
+                        Style="{StaticResource Form-Label}"
+                        Content="VAT"/>
+                        <TextBlock 
+                        Style="{StaticResource Form-TextBlock}"
+                        x:Name="VAT"
+                        Text="{Binding Path=VAT, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{Binding ErrorCollection[VAT]}"  Style="{StaticResource Error-Notify}" />
+                    </StackPanel>
+
+                </Grid>
+
+
+                <Label
+            Style="{StaticResource Form-Label}"
+            Content="Tổng tiền"/>
+                <TextBlock 
+            Style="{StaticResource Form-TextBlock}"
+            x:Name="TotalMoney"
+            Text="{Binding Path=TotalMoney, Mode=OneWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                </Grid>
+
+                
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <DataGrid
+                    Width="1120"
+                    ColumnWidth="auto"
+                    ScrollViewer.CanContentScroll="True" 
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                    x:Name="DataGrid_PurchaseBillDetail"
+                    AutoGenerateColumns="False"
+                    CanUserResizeColumns="True"
+>
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn Header="Mã sản phẩm" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock   Text="{Binding ProductId}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Mã Seri" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding Serial}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Tên sản phẩm" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock   Text="{Binding Product.ProductName}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Số lượng" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <customTextBox:CustomTextBox 
+                        Style="{StaticResource Form-TextBox}"
+                        x:Name="Quantity"
+                        IsReadOnly="True"
+                        Text="{Binding Path=Quantity, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+                                    />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Width="*"  IsReadOnly="True" Header="Hàng tồn" Binding="{Binding Inventory}" />
+                    <DataGridTextColumn Width="*"  IsReadOnly="True" Header="Giá" Binding="{Binding Price}" />
+                    <DataGridTextColumn  Width="*"  IsReadOnly="True" Header="Tổng tiền" Binding="{Binding TotalMoney}" />
+                    <DataGridTextColumn Width="*"  Header="Ghi chú" Binding="{Binding Note, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
+
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+
+
+
+
+    </Grid>
+</UserControl>

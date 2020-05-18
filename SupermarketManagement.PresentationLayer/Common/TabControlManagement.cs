@@ -10,6 +10,13 @@ namespace Supermarketmanagement.PresentationLayer.Common
 {
     public  class TabControlManagement
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tabControl"></param>
+        /// <param name="title"></param>
+        /// <returns>first index if found</returns>
+        /// <returns>-1 if not found</returns>
         public static int GetIndexByTitle(TabControl tabControl, string title)
         {
             int i = 0;

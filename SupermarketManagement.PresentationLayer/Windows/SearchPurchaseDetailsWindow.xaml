@@ -1,0 +1,36 @@
+﻿<Window x:Class="Supermarketmanagement.PresentationLayer.Windows.SearchPurchaseDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.Windows"
+        mc:Ignorable="d"
+        Title="SearchPurchaseDetailsWindow" Height="450" Width="800">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Name="Search" TextChanged="SearchList" Width="150" />
+            <Button Content="Search" />
+        </StackPanel>
+        <DataGrid
+                    HorizontalAlignment="Center"
+             x:Name="DataGrid_PurchaseBillDetail"
+            AutoGenerateColumns="False"
+            CanUserDeleteRows="True"
+            SelectionChanged="DataGrid_PurchaseBillDetail_Changed"
+            CanUserAddRows="True">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Width="*"  IsReadOnly="True" Header="Mã sản phẩm" Binding="{Binding ProductId}" />
+                <DataGridTextColumn Width="*"  IsReadOnly="True" Header="Số sêri của sản phẩm" Binding="{Binding Serial}" />
+                <DataGridTextColumn Width="*"  IsReadOnly="True" Header="Tên sản phẩm" Binding="{Binding ProductName}" />
+                <DataGridTextColumn Width="*"  IsReadOnly="True" Header="Giá" Binding="{Binding Price}" />
+                <DataGridTextColumn Width="*"  IsReadOnly="True" Header="Tồn kho" Binding="{Binding Inventory}" />
+                <DataGridTextColumn Width="*"  Header="Ghi chú" Binding="{Binding Note}" />
+
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </StackPanel>
+</Window>

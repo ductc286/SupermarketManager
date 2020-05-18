@@ -20,6 +20,7 @@
             Style="{StaticResource Form-TextBox}"
             Name="SupplierName"
             Text="{Binding Path=SupplierName, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[SupplierName]}"  Style="{StaticResource Error-Notify}" />
         <Label
             Style="{StaticResource Form-Label}"
             Content="Miêu tả"/>
@@ -27,6 +28,7 @@
             Style="{StaticResource Form-TextBox}"
             Name="Description"
             Text="{Binding Path=Description, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[Description]}"  Style="{StaticResource Error-Notify}" />
         <Button
             Style="{StaticResource Form-Button}"
             Click="Update_Click"

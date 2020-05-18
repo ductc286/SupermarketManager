@@ -12,7 +12,15 @@ namespace SupermarketManagement.Core.Models
 
         public int SupplierId { get; set; }
 
-        [Range(0,100)]
+        public string SupplierName
+        {
+            get
+            {
+                return Supplier.SupplierName;
+            }
+        }
+
+        [Range(0, 100)]
         public byte Discount { get; set; }
 
         [Range(0, 100)]
@@ -29,5 +37,28 @@ namespace SupermarketManagement.Core.Models
 
         public virtual ICollection<PurchaseBillDetail> PurchaseBillDetails { get; set; }
         public virtual Staff Staff { get; set; }
+        public virtual Supplier Supplier { get; set; }
+
+        #region For Only Getdata
+        public string Account
+        {
+            get
+            {
+                return Staff.Account;
+            }
+        }
+
+        public int NumberTypeProduct
+        {
+            get
+            {
+                if (PurchaseBillDetails == null)
+                {
+                    return 0;
+                }
+                return PurchaseBillDetails.Count;
+            }
+        }
+        #endregion
     }
 }
