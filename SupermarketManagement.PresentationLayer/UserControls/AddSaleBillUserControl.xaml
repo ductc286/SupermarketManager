@@ -29,6 +29,7 @@
                 Content="Nhân viên"/>
                 <TextBlock 
                     Style="{StaticResource H1-TextBlock}"
+                    Name="Account"
                     Text="{Binding Path=Account}"/>
                 <TextBox 
             Style="{StaticResource TextBox-Hidden}"

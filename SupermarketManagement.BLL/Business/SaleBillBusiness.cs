@@ -30,7 +30,7 @@ namespace SupermarketManagement.BLL.Business
             var saleBill = entity.MapToSaleBill();
             saleBill.SaleBillId = IdUtilities.GenerateByTimeSpan();
             saleBill.CreatedDate = DateTime.Now;
-            saleBill.StaffId = StaffGlobal.StaffId;
+            saleBill.StaffId = StaffGlobal.CurrentStaff.StaffId;
             _saleBillRepository.Add(saleBill);
             foreach (var item in entity.SaleBillDetailViewModels)
             {
@@ -38,7 +38,7 @@ namespace SupermarketManagement.BLL.Business
                 saleBillDetail.SaleBillId = entity.SaleBillId;
                 _saleBillDetailRepository.Add(saleBillDetail);
             }
-
+            return true;
         }
 
         public bool Delete(object id)

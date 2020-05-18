@@ -1,4 +1,5 @@
-﻿using Supermarketmanagement.Core.ViewModels;
+﻿using Supermarketmanagement.Core.Common;
+using Supermarketmanagement.Core.ViewModels;
 using Supermarketmanagement.PresentationLayer.Windows;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
@@ -30,6 +31,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             this.DataContext = saleBillViewModel;
             Load_DataGrid_SaleBillDetail();
+            Account.Text = StaffGlobal.CurrentStaff.Account;
         }
 
         private void Load_DataGrid_SaleBillDetail()
