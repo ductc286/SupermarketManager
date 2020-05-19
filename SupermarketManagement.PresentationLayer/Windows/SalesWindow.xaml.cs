@@ -27,14 +27,16 @@ namespace Supermarketmanagement.PresentationLayer.Windows
     {
         public SalesWindow()
         {
-            var c = UsecaseStringContants.addSaleBill;
             #region Staff to test
             StaffBusiness staffBusiness = new StaffBusiness();
             var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "234ksf" });
             StaffGlobal.CurrentStaff = staff;
             #endregion
-            this.WindowState = WindowState.Maximized;
+            //this.WindowState = WindowState.Maximized;
+            
             InitializeComponent();
+            this.Width = 1370;
+            this.Height = 770;
             InitializeData();
         }
 
@@ -82,7 +84,24 @@ namespace Supermarketmanagement.PresentationLayer.Windows
 
         private void MenuListSaleBill_Click(object sender, RoutedEventArgs e)
         {
-
+            //If found tab was ListSaleBill, selected for Tabcontrol
+            var index = TabControlManagement.GetIndexByTitle(MainTabControl, UsecaseStringContants.listSaleBill);
+            if (index >= 0)
+            {
+                MainTabControl.SelectedIndex = index;
+            }
+            //If not found tab was ListSaleBill, add and selected
+            else
+            {
+                ListSaleBillUserControl listSaleBillUserControl = new ListSaleBillUserControl();
+                CustomTabItem customTabItem = new CustomTabItem()
+                {
+                    Title = UsecaseStringContants.listSaleBill,
+                    Content = listSaleBillUserControl
+                };
+                MainTabControl.Items.Add(customTabItem);
+                MainTabControl.SelectedItem = customTabItem;
+            }
         }
 
         private void MenuAddEndOfShift_Click(object sender, RoutedEventArgs e)

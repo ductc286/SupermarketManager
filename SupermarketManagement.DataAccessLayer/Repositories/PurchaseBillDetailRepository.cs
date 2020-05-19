@@ -16,6 +16,7 @@ namespace SupermarketManagement.DataAccessLayer.Repositories
             if (isSuccess)
             {
                 TriggerQuantityIncrease(entity.Quantity, entity.ProductId);
+                return true;
             }
             return false;
         }
@@ -35,6 +36,7 @@ namespace SupermarketManagement.DataAccessLayer.Repositories
             if (isSuccess)
             {
                 TriggerQuantityReduced(entity.Quantity, entity.ProductId);
+                return true;
             }
             return false;
         }
@@ -65,7 +67,7 @@ namespace SupermarketManagement.DataAccessLayer.Repositories
                 {
                     TriggerQuantityIncrease(changedQuantity, entity.ProductId);
                 }
-                
+                return true;
             }
             return false;
         }

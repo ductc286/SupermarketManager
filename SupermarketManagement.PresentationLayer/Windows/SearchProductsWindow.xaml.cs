@@ -11,12 +11,12 @@ namespace Supermarketmanagement.PresentationLayer.Windows
     /// <summary>
     /// Interaction logic for SearchPurchaseDetailsWindow.xaml
     /// </summary>
-    public partial class SearchPurchaseDetailsWindow : Window
+    public partial class SearchProductsWindow : Window
     {
         private readonly IProductBusiness _productBusiness;
         private List<Product> _products;
         public Product product = null;
-        public SearchPurchaseDetailsWindow()
+        public SearchProductsWindow()
         {
             InitializeComponent();
             _productBusiness = new ProductBusiness();

@@ -17,6 +17,9 @@ namespace Supermarketmanagement.Core.ViewModels
             this.Quantity = saleBillDetail.Quantity;
             this.TotalMoney = saleBillDetail.TotalMoney;
             this.Note = saleBillDetail.Note;
+            this.Serial = saleBillDetail.Product.Serial;
+            this.ProductName = saleBillDetail.Product.ProductName;
+
 
         }
 

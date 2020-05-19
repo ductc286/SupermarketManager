@@ -18,6 +18,7 @@ namespace Supermarketmanagement.Core.ViewModels
             this.StaffId = saleBill.StaffId;
             this.Account = saleBill.Staff.Account;
             this.Note = saleBill.Note;
+            this.IsAprroved = saleBill.IsAprroved;
             this.SaleBillDetailViewModels = new List<SaleBillDetailViewModel>();
             foreach (var item in saleBill.SaleBillDetails)
             {
@@ -69,14 +70,7 @@ namespace Supermarketmanagement.Core.ViewModels
 
         public int StaffId { get; set; }
 
-        public string TotalMoneyString
-        {
-            get
-            {
-
-                return string.Format("{0:n0}", TotalMoney);
-            }
-        }
+        public bool IsAprroved { get; set; } = false;
 
         public string Account { get; set; }
 
@@ -93,6 +87,14 @@ namespace Supermarketmanagement.Core.ViewModels
 
         public virtual List<SaleBillDetailViewModel> SaleBillDetailViewModels { get; set; } = new List<SaleBillDetailViewModel>();
 
+        public string TotalMoneyString
+        {
+            get
+            {
+
+                return string.Format("{0:n0}", TotalMoney);
+            }
+        }
         private long _customerPay = 0;
         public long CustomerPay {
             get { return _customerPay; }

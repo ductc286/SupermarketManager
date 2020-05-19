@@ -44,7 +44,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             var row = GetParent<DataGridRow>((TextBlock)sender);
             var index = DataGrid_SaleBillDetail.Items.IndexOf(row.Item);
-            SearchPurchaseDetailsWindow searchPurchaseDetailsWindow = new SearchPurchaseDetailsWindow();
+            SearchProductsWindow searchPurchaseDetailsWindow = new SearchProductsWindow();
             searchPurchaseDetailsWindow.ShowDialog();
             var product = searchPurchaseDetailsWindow.product;
             if (product == null)

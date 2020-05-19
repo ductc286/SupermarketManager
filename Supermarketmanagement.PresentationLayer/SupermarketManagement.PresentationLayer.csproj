@@ -108,6 +108,9 @@
     <Compile Include="UserControls\EditPurchaseBillUserControl.xaml.cs">
       <DependentUpon>EditPurchaseBillUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EditSaleBillUserControl.xaml.cs">
+      <DependentUpon>EditSaleBillUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\EditSupplierUserControl.xaml.cs">
       <DependentUpon>EditSupplierUserControl.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,9 @@
     <Compile Include="Windows\EditPurchaseBillWindow.xaml.cs">
       <DependentUpon>EditPurchaseBillWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditSaleBillWindow.xaml.cs">
+      <DependentUpon>EditSaleBillWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditSupplierWindow.xaml.cs">
       <DependentUpon>EditSupplierWindow.xaml</DependentUpon>
     </Compile>
@@ -153,8 +159,8 @@
     <Compile Include="Windows\SalesWindow.xaml.cs">
       <DependentUpon>SalesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SearchPurchaseDetailsWindow.xaml.cs">
-      <DependentUpon>SearchPurchaseDetailsWindow.xaml</DependentUpon>
+    <Compile Include="Windows\SearchProductsWindow.xaml.cs">
+      <DependentUpon>SearchProductsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\StringConstants.cs" />
     <Compile Include="App.xaml.cs">
@@ -206,6 +212,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\EditSaleBillUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\EditSupplierUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,6 +260,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\EditSaleBillWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\EditSupplierWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -266,7 +280,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SearchPurchaseDetailsWindow.xaml">
+    <Page Include="Windows\SearchProductsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
