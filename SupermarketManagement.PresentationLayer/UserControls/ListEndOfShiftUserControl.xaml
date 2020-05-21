@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Supermarketmanagement.PresentationLayer.UserControls.ListSaleBillUserControl"
+﻿<UserControl x:Class="Supermarketmanagement.PresentationLayer.UserControls.ListEndOfShiftUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,8 +17,7 @@
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
-
-            <ListView HorizontalAlignment="Left"  Name="ListSaleBills"  Background="SkyBlue" Height="470">
+            <ListView HorizontalAlignment="Left" Name="ListViewEndOfShifts"  Background="SkyBlue" Height="470">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="Background" Value="AliceBlue" />
@@ -33,16 +32,17 @@
                 </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn  Header="Mã đơn hàng"  DisplayMemberBinding="{Binding SaleBillId}"/>
+                        <GridViewColumn  Header="Mã Phiếu "  DisplayMemberBinding="{Binding EndOfShiftId}"/>
                         <GridViewColumn Header="Nhân viên"  DisplayMemberBinding="{Binding Staff.Account}" />
                         <GridViewColumn Header="Ngày tạo"  DisplayMemberBinding="{Binding CreatedDate}" />
-                        <GridViewColumn Header="Số loại SP"  DisplayMemberBinding="{Binding NumberTypeProduct}" />
-                        <GridViewColumn Header="Chiết khấu"  DisplayMemberBinding="{Binding Discount}" />
-                        <GridViewColumn Header="Tổng tiền"  DisplayMemberBinding="{Binding TotalMoney}" />
+                        <GridViewColumn Header="Ngày tính tiền"  DisplayMemberBinding="{Binding Date}" />
+                        <GridViewColumn Header="Từ(hh)"  DisplayMemberBinding="{Binding From}" />
+                        <GridViewColumn Header="Đến(hh)"  DisplayMemberBinding="{Binding To}" />
+                        <GridViewColumn Header="Tổng giờ làm"  DisplayMemberBinding="{Binding TotalHours}" />
                         <GridViewColumn Header="Phê duyệt" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <CheckBox Margin="5, 0" IsChecked="{Binding IsAprroved}" IsEnabled="False" />
+                                    <CheckBox Margin="5, 0" IsChecked="{Binding IsApproved}" IsEnabled="False" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -53,19 +53,15 @@
         </ScrollViewer>
 
         <StackPanel Grid.Row="1" Margin="0,10,0,0"  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
-            
-            <Button Style="{StaticResource Form-Button}"
-                    Name="Button_Edit"
-                    Click="Open_Edit"
-                    >Sửa</Button>
-            <Button Style="{StaticResource Form-Button}"
-                    Name="Button_Detail"
-                    Click="Open_Detail"
-                    >Chi tiết</Button>
+
             <Button Style="{StaticResource Form-Button}"
                     Name="Button_Delete"
                     Click="Delete_Click">Xóa</Button>
+            <Button Style="{StaticResource Form-Button}"
+                    Name="Button_Approve"
+                    Click="Approve_Click">Phê duyệt</Button>
 
         </StackPanel>
+
     </Grid>
 </UserControl>

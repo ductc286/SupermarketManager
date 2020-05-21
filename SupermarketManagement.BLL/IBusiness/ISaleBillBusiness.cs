@@ -8,7 +8,7 @@ namespace SupermarketManagement.BLL.IBusiness
     {
         SaleBill GetById(object id);
         List<SaleBill> GetAll();
-        bool Delete(object id);
+        bool Delete(SaleBill saleBill);
         bool Add(SaleBillViewModel entity);
         bool Update(SaleBillViewModel entity);
     }

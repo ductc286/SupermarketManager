@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
 
-            <ListView HorizontalAlignment="Left"  Name="ListPurchaseBills">
+            <ListView HorizontalAlignment="Left"  Name="ListPurchaseBills"  Background="SkyBlue"  Height="470">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="Background" Value="AliceBlue" />

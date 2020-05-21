@@ -81,6 +81,12 @@
     <Compile Include="UserControls\AddCategoryUserControl.xaml.cs">
       <DependentUpon>AddCategoryUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AddEndOfShiftUserControl.xaml.cs">
+      <DependentUpon>AddEndOfShiftUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddMultilpleSaleBillUserControl.xaml.cs">
+      <DependentUpon>AddMultilpleSaleBillUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddProductUserControl.xaml.cs">
       <DependentUpon>AddProductUserControl.xaml</DependentUpon>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <Compile Include="UserControls\DetailPurchaseBillUserControl.xaml.cs">
       <DependentUpon>DetailPurchaseBillUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DetailSaleBillUserControl.xaml.cs">
+      <DependentUpon>DetailSaleBillUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DetailSupplierUserControl.xaml.cs">
       <DependentUpon>DetailSupplierUserControl.xaml</DependentUpon>
@@ -117,6 +126,9 @@
     <Compile Include="UserControls\ListCategoryUserControl.xaml.cs">
       <DependentUpon>ListCategoryUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ListEndOfShiftUserControl.xaml.cs">
+      <DependentUpon>ListEndOfShiftUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ListProductUserControl.xaml.cs">
       <DependentUpon>ListProductUserControl.xaml</DependentUpon>
     </Compile>
@@ -134,6 +146,9 @@
     </Compile>
     <Compile Include="Windows\DetailPurchaseBillUserWindow.xaml.cs">
       <DependentUpon>DetailPurchaseBillUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DetailsWindow.xaml.cs">
+      <DependentUpon>DetailsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditCategoryWindow.xaml.cs">
       <DependentUpon>EditCategoryWindow.xaml</DependentUpon>
@@ -176,6 +191,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\AddEndOfShiftUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddMultilpleSaleBillUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\AddProductUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\DetailPurchaseBillUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DetailSaleBillUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,6 +251,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\ListEndOfShiftUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\ListProductUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -245,6 +276,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DetailPurchaseBillUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

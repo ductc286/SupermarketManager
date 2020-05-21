@@ -84,7 +84,7 @@ namespace SupermarketManagement.DataAccessLayer.Repositories
         private void TriggerQuantityIncrease(int quantity, int productId)
         {
             var product = MyContext.Products.Find(productId);
-            var newInventory = product.Inventory - quantity;
+            var newInventory = product.Inventory + quantity;
             product.Inventory = newInventory;
             MyContext.Products.AddOrUpdate(product);
             MyContext.SaveChanges();
@@ -93,7 +93,7 @@ namespace SupermarketManagement.DataAccessLayer.Repositories
         private void TriggerQuantityReduced(int quantity, int productId)
         {
             var product = MyContext.Products.Find(productId);
-            var newInventory = product.Inventory + quantity;
+            var newInventory = product.Inventory - quantity;
             product.Inventory = newInventory;
             MyContext.Products.AddOrUpdate(product);
             MyContext.SaveChanges();

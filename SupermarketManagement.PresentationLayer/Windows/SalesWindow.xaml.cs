@@ -5,18 +5,7 @@ using Supermarketmanagement.PresentationLayer.Custom;
 using Supermarketmanagement.PresentationLayer.UserControls;
 using SupermarketManagement.BLL.Business;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Supermarketmanagement.PresentationLayer.Windows
 {
@@ -29,7 +18,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
         {
             #region Staff to test
             StaffBusiness staffBusiness = new StaffBusiness();
-            var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "234ksf" });
+            var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
             StaffGlobal.CurrentStaff = staff;
             #endregion
             //this.WindowState = WindowState.Maximized;
@@ -52,12 +41,11 @@ namespace Supermarketmanagement.PresentationLayer.Windows
 
         private void LoadMainTabControl()
         {
-            AddSaleBillUserControl addSaleBillUserControl = new AddSaleBillUserControl();
-            //EditPurchaseBillUserControl editPurchaseBillUserControl = new EditPurchaseBillUserControl();
-            CustomTabItem customTabItem = new CustomTabItem() { Title = "Tab Default", Content = addSaleBillUserControl };
-
+            AddMultilpleSaleBillUserControl addMultilpleSaleBillUserControl = new AddMultilpleSaleBillUserControl();
+            CustomTabItem customTabItem = new CustomTabItem() { Title = UsecaseStringContants.addSaleBill, Content = addMultilpleSaleBillUserControl };
             MainTabControl.Items.Clear();
             MainTabControl.Items.Add(customTabItem);
+            CurrenTabTitle.Content = UsecaseStringContants.addSaleBill;
         }
 
         private void MenuAddSaleBill_Click(object sender, RoutedEventArgs e)
@@ -71,15 +59,16 @@ namespace Supermarketmanagement.PresentationLayer.Windows
             //If not found tab was AddSaleBill, add and selected
             else
             {
-                AddSaleBillUserControl addSaleBillUserControl = new AddSaleBillUserControl();
+                AddMultilpleSaleBillUserControl addMultilpleSaleBillUserControl = new AddMultilpleSaleBillUserControl();
                 CustomTabItem customTabItem = new CustomTabItem()
                 {
                     Title = UsecaseStringContants.addSaleBill,
-                    Content = addSaleBillUserControl
+                    Content = addMultilpleSaleBillUserControl
                 };
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.addSaleBill;
         }
 
         private void MenuListSaleBill_Click(object sender, RoutedEventArgs e)
@@ -102,16 +91,53 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.listSaleBill;
         }
 
         private void MenuAddEndOfShift_Click(object sender, RoutedEventArgs e)
         {
-
+            //If found tab was AddEndOfShift, selected for Tabcontrol
+            var index = TabControlManagement.GetIndexByTitle(MainTabControl, UsecaseStringContants.addEndOfShift);
+            if (index >= 0)
+            {
+                MainTabControl.SelectedIndex = index;
+            }
+            //If not found tab was AddEndOfShift, add and selected
+            else
+            {
+                AddEndOfShiftUserControl addEndOfShiftUserControl = new AddEndOfShiftUserControl();
+                CustomTabItem customTabItem = new CustomTabItem()
+                {
+                    Title = UsecaseStringContants.addEndOfShift,
+                    Content = addEndOfShiftUserControl
+                };
+                MainTabControl.Items.Add(customTabItem);
+                MainTabControl.SelectedItem = customTabItem;
+            }
+            CurrenTabTitle.Content = UsecaseStringContants.addEndOfShift;
         }
 
         private void MenuListEndOfShift_Click(object sender, RoutedEventArgs e)
         {
-
+            //If found tab was ListEndOfShift, selected for Tabcontrol
+            var index = TabControlManagement.GetIndexByTitle(MainTabControl, UsecaseStringContants.listEndOfShift);
+            if (index >= 0)
+            {
+                MainTabControl.SelectedIndex = index;
+            }
+            //If not found tab was ListEndOfShift, add and selected
+            else
+            {
+                ListEndOfShiftUserControl listEndOfShiftUserControl = new ListEndOfShiftUserControl();
+                CustomTabItem customTabItem = new CustomTabItem()
+                {
+                    Title = UsecaseStringContants.listEndOfShift,
+                    Content = listEndOfShiftUserControl
+                };
+                MainTabControl.Items.Add(customTabItem);
+                MainTabControl.SelectedItem = customTabItem;
+            }
+            CurrenTabTitle.Content = UsecaseStringContants.listEndOfShift;
         }
     }
 }

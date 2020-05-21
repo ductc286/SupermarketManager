@@ -38,19 +38,6 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             ListPurchaseBills.ItemsSource = purchaseBills;
         }
 
-        //private void Open_EditCategory(object sender, RoutedEventArgs e)
-        //{
-        //    var category = (Category)ListCategories.SelectedItem;
-        //    if (category == null)
-        //    {
-        //        MessageBox.Show("Vui lòng chọn một mục trong danh sách!", "Edit", MessageBoxButton.OK, MessageBoxImage.Warning);
-        //    }
-        //    else
-        //    {
-        //        EditCategoryWindow editCategoryWindow = new EditCategoryWindow(category);
-        //        editCategoryWindow.Show();
-        //    }
-        //}
         private void Open_EditPurchaseBill(object sender, RoutedEventArgs e)
         {
             var purchaseBill = (PurchaseBill)ListPurchaseBills.SelectedItem;

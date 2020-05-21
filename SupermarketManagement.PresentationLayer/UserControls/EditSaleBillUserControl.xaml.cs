@@ -18,6 +18,8 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     /// </summary>
     public partial class EditSaleBillUserControl : UserControl
     {
+        bool CanEdit = true;
+        string TestText = "test";
         private readonly ISaleBillBusiness _saleBillBusiness;
         public SaleBillViewModel saleBillViewModel;
 
@@ -27,10 +29,10 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             _saleBillBusiness = new SaleBillBusiness();
             this.saleBillViewModel = new SaleBillViewModel(saleBill);
             this.DataContext = saleBillViewModel;
-            Load_DataGrid_PurchaseBillDetail();
+            Load_DataGrid_SaleBillDetail();
         }
 
-        private void Load_DataGrid_PurchaseBillDetail()
+        private void Load_DataGrid_SaleBillDetail()
         {
             DataGrid_SaleBillDetail.DataContext = saleBillViewModel.SaleBillDetailViewModels;
             DataGrid_SaleBillDetail.ItemsSource = saleBillViewModel.SaleBillDetailViewModels;

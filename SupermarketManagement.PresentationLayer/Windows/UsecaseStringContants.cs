@@ -2,9 +2,9 @@
 {
     public static class UsecaseStringContants
     {
-        public const string listSupplier = "DS nhà cung cấp";
-        public const string addSupplier = "Thêm nhà cung cấp";
-        public const string editSupplier = "Sửa nhà cung cấp";
+        public const string listSupplier = "DS nhà phân phối";
+        public const string addSupplier = "Thêm nhà phân phối";
+        public const string editSupplier = "Sửa nhà phân phối";
 
         public const string addProduct = "Thêm sản phẩm";
         public const string editProduct = "Sửa sản phẩm";
@@ -19,5 +19,8 @@
 
         public const string addSaleBill = "Thêm đơn bán hàng";
         public const string listSaleBill = "DS đơn bán hàng";
+
+        public const string addEndOfShift = "Thêm phiếu chốt ca";
+        public const string listEndOfShift = "DS phiếu chốt ca";
     }
 }

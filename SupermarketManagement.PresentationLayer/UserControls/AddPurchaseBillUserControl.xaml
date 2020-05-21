@@ -58,7 +58,7 @@
                         <Label
                         Style="{StaticResource Form-Label}"
                         Content="Chiết khấu"/>
-                                    <customTextBox:CustomTextBox 
+                        <customTextBox:CustomTextBox 
                         Style="{StaticResource Form-TextBox}"
                         x:Name="Discount"
                         Text="{Binding Path=Discount, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>

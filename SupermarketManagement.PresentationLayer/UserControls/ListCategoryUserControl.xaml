@@ -5,42 +5,49 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
              mc:Ignorable="d" 
-             
+             d:DesignHeight="450" d:DesignWidth="800"
              HorizontalAlignment="Center"
              VerticalAlignment="Top">
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Left">
-            <ListView HorizontalAlignment="Left"  Name="ListCategories" Background="SkyBlue">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="Background" Value="AliceBlue" />
-                        <Setter Property="BorderBrush" Value="BlanchedAlmond" />
-                        <Setter Property="BorderThickness" Value="2" />
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Foreground" Value="Red" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn  Header="Mã thể loại sản phẩm"  DisplayMemberBinding="{Binding CategoryId}"/>
-                        <GridViewColumn Header="Tên thể loại sản phẩm"  DisplayMemberBinding="{Binding CategoryName}" />
-                        <GridViewColumn Header="Miêu tả"  DisplayMemberBinding="{Binding Description}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <StackPanel Margin="0,10,0,0"  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Button Style="{StaticResource Form-Button}">Tạo mới</Button>
-                <Button Style="{StaticResource Form-Button}"
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
+                <ListView HorizontalAlignment="Left"  Name="ListCategories" Background="SkyBlue" Height="470">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Background" Value="AliceBlue" />
+                            <Setter Property="BorderBrush" Value="BlanchedAlmond" />
+                            <Setter Property="BorderThickness" Value="2" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Foreground" Value="Red" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn  Header="Mã thể loại sản phẩm"  DisplayMemberBinding="{Binding CategoryId}"/>
+                            <GridViewColumn Header="Tên thể loại sản phẩm"  DisplayMemberBinding="{Binding CategoryName}" />
+                            <GridViewColumn Header="Miêu tả"  DisplayMemberBinding="{Binding Description}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+        </ScrollViewer>
+        <StackPanel Grid.Row="1" Margin="0,10,0,0"  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Button Style="{StaticResource Form-Button}">Tạo mới</Button>
+            <Button Style="{StaticResource Form-Button}"
                         Click="Open_EditCategory"
                         >Sửa</Button>
-                <Button Style="{StaticResource Form-Button}">Xóa</Button>
+            <Button Style="{StaticResource Form-Button}">Xóa</Button>
 
-            </StackPanel>
         </StackPanel>
-       
-        
-    </DockPanel>
+    </Grid>
+
 </UserControl>

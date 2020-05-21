@@ -27,10 +27,10 @@
                 <Label
                 Style="{StaticResource Form-Label}"
                 Content="Nhân viên"/>
-                <TextBlock 
-                    Style="{StaticResource Form-TextBlock}"
+                <TextBox 
+                    Style="{StaticResource Form-TextBox-Readonly}"
                     Name="Account"
-                    Text="{Binding Path=Account}"/>
+                    />
                 <TextBox 
             Style="{StaticResource TextBox-Hidden}"
             Name="SupplierId"
@@ -73,8 +73,8 @@
                         Style="{StaticResource Form-Label}"
                         Content="Tổng tiền"/>
 
-                        <TextBlock 
-                        Style="{StaticResource Form-TextBlock}"
+                        <TextBox 
+                        Style="{StaticResource Form-TextBox-Money}"
                         x:Name="TotalMoney"
                         Text="{Binding Path=TotalMoneyString, Mode=OneWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
                         <TextBlock Text="{Binding ErrorCollection[TotalMoneyString]}"  Style="{StaticResource Error-Notify}" />
@@ -108,8 +108,8 @@
                         <Label
                         Style="{StaticResource Form-Label}"
                         Content="Tiền thừa"/>
-                        <TextBlock 
-                        Style="{StaticResource Form-TextBlock}"
+                        <TextBox 
+                        Style="{StaticResource Form-TextBox-Money}"
                         x:Name="ExcessCash"
                         Text="{Binding Path=ExcessCashString, Mode=OneWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
                         <TextBlock Text="{Binding ErrorCollection[ExcessCash]}"  Style="{StaticResource Error-Notify}" />

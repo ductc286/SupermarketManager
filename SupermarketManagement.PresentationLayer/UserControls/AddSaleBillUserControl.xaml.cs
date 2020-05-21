@@ -3,7 +3,6 @@ using Supermarketmanagement.Core.ViewModels;
 using Supermarketmanagement.PresentationLayer.Windows;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;

@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Supermarketmanagement.PresentationLayer.UserControls.AddEndOfShiftUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
+             xmlns:customTextBox="clr-namespace:Supermarketmanagement.PresentationLayer.Custom"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="800">
+    <StackPanel>
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Nhân viên"/>
+        <TextBox 
+            Style="{StaticResource Form-TextBox-Readonly}"
+            Name="StaffName"
+            />
+        <TextBlock Text=""  Style="{StaticResource Error-Notify}" />
+
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Date"/>
+        <!--<TextBox 
+            Name="Date"
+            Style="{StaticResource Form-TextBox}"
+            Text="{Binding Path=Date, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>-->
+        <DatePicker Text="{Binding Path=Date, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[Date]}"  Style="{StaticResource Error-Notify}" />
+
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="From"/>
+        <customTextBox:CustomTextBox 
+            Style="{StaticResource Form-TextBox}"
+            x:Name="From"
+            Text="{Binding Path=From, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[From]}"  Style="{StaticResource Error-Notify}" />
+
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="To"/>
+        <customTextBox:CustomTextBox 
+            Style="{StaticResource Form-TextBox}"
+            x:Name="To"
+            Text="{Binding Path=To, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[To]}"  Style="{StaticResource Error-Notify}" />
+        
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Tổng giờ làm"/>
+        <ComboBox  Name="ComboBoxTotalHours" Style="{StaticResource Form-ComboBox}" SelectionChanged="ComboBoxTotalHours_Changed">
+        </ComboBox>
+        <TextBox 
+            Style="{StaticResource TextBox-Hidden}"
+            Name="TotalHours"
+            Text="{Binding Path=TotalHours, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="{Binding ErrorCollection[TotalHours]}"  Style="{StaticResource Error-Notify}" />
+        
+        <Label
+            Style="{StaticResource Form-Label}"
+            Content="Ghi chú"/>
+        <TextBox 
+            Name="Note"
+            Style="{StaticResource Form-TextBox-MultipleLines}"
+            Text="{Binding Path=Note, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="{Binding ErrorCollection[Note]}"  Style="{StaticResource Error-Notify}" />
+        <Button
+            Style="{StaticResource Form-Button}"
+            Click="Add_Click"
+            >Thêm</Button>
+    </StackPanel>
+</UserControl>

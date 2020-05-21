@@ -25,8 +25,8 @@
                 <MenuItem Header="Xem danh sách" Click="MenuListProduct_Click" />
                 
             </MenuItem>
-            <MenuItem Header="Quản lý nhà cung cấp">
-                <MenuItem Header="Thêm nhà cung cấp" Click="MenuAddSupplier_Click" />
+            <MenuItem Header="Quản lý nhà phân phối">
+                <MenuItem Header="Thêm nhà phân phối" Click="MenuAddSupplier_Click" />
                 <Separator  />
                 <MenuItem  Header="Xem danh sách"  Click="MenuListSuplier" />
             </MenuItem>
@@ -40,21 +40,21 @@
                 <MenuItem  Header="{x:Static local:UsecaseStringContants.listPurchaseBill}"  Click="MenuListPurchaseBill" />
                 
             </MenuItem>
-            <MenuItem Header="Quản lý bán hàng"></MenuItem>
-            <MenuItem Header="Phê duyệt ca làm việc"></MenuItem>
+            <MenuItem Header="Quản lý bán hàng" Click="MenuListSaleBill_Click"></MenuItem>
+            <MenuItem Header="Phê duyệt ca làm việc"  Click="MenuEndOfShift_Click"></MenuItem>
             <MenuItem Header="Thống kê"></MenuItem>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
-            <Label>ToolBar: Chức năng này sẽ sớm hoàn thành!</Label>
+            <!--<Label>ToolBar: Chức năng này sẽ sớm hoàn thành!</Label>-->
         </ToolBar>
         <DockPanel DockPanel.Dock="Top"  LastChildFill="True"  Background="PaleTurquoise" Height="600">
-            <StackPanel DockPanel.Dock="Left" Width="200" Background="White">
+            <StackPanel DockPanel.Dock="Left" Width="0" Background="White">
                 <Label>Phần left menu</Label>
             </StackPanel>
             <ScrollViewer HorizontalScrollBarVisibility="Auto">
                 <StackPanel DockPanel.Dock="Right" >
 
-                    <Label FontSize="14" Name="CurrenTabTitle" Background="SkyBlue">Tiêu đê tab hiện tại( main conten)</Label>
+                    <Label FontSize="14" Name="CurrenTabTitle" Background="SkyBlue" HorizontalContentAlignment="Center">Tiêu đê tab hiện tại( main conten)</Label>
                     <TabControl  Name="MainTabControl"
                                  HorizontalContentAlignment="Center"
                              Height="570"

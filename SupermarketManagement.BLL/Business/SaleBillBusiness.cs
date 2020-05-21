@@ -41,9 +41,8 @@ namespace SupermarketManagement.BLL.Business
                 return true;
         }
 
-        public bool Delete(object id)
+        public bool Delete(SaleBill saleBill)
         {
-            var saleBill = _saleBillRepository.GetById(id);
             if (saleBill == null)
             {
                 return false;

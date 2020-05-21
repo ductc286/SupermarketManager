@@ -20,8 +20,6 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             InitializeComponent();
             _saleBillBusiness = new SaleBillBusiness();
-            //saleBills = _saleBillBusiness.GetAll();
-            saleBills = _saleBillBusiness.GetAll();
             InitializeData();
         }
 
@@ -30,27 +28,26 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
+            saleBills = _saleBillBusiness.GetAll();
             DataContext = saleBills;
-            LoadList();
-        }
-
-        public void LoadList()
-        {
-            
             ListSaleBills.ItemsSource = saleBills;
         }
 
-
-
+        public void SetUpForAdmin()
+        {
+            Button_Edit.Visibility = Visibility.Hidden;
+            Button_Delete.Visibility = Visibility.Hidden;
+        }
 
         private void Open_Detail(object sender, RoutedEventArgs e)
         {
-            //var purchaseBill = (PurchaseBill)ListPurchaseBills.SelectedItem;
-            //if (purchaseBill != null)
-            //{
-            //    DetailPurchaseBillUserWindow detailPurchaseBillUserWindow = new DetailPurchaseBillUserWindow(purchaseBill);
-            //    detailPurchaseBillUserWindow.ShowDialog();
-            //}
+            var saleBill = (SaleBill)ListSaleBills.SelectedItem;
+            if (saleBill != null)
+            {
+                DetailsWindow detailsWindow = new DetailsWindow(saleBill);
+                detailsWindow.ShowDialog();
+            }
+
         }
 
         private void Open_Edit(object sender, RoutedEventArgs e)
@@ -69,6 +66,29 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
 
                 EditSaleBillWindow editSaleBillWindow = new EditSaleBillWindow(saleBill);
                 editSaleBillWindow.ShowDialog();
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var saleBill = (SaleBill)ListSaleBills.SelectedItem;
+            if (saleBill == null)
+            {
+                MessageBox.Show("Chưa có mục nào được chọn!", "Delete", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (saleBill.IsAprroved)
+            {
+                MessageBox.Show("Không thể xoá đơn hàng đã được phê duyệt!", "Delete", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (saleBill != null)
+            {
+                var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa danh mục này?", "Delete", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                if (confirm == MessageBoxResult.OK)
+                {
+                    _saleBillBusiness.Delete(saleBill);
+                    InitializeData();
+                }
+                
             }
         }
     }

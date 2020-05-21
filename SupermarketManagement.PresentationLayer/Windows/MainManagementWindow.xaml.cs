@@ -20,7 +20,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
         {
             #region Staff to test
             StaffBusiness staffBusiness = new StaffBusiness();
-            var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "234ksf" });
+            var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
             StaffGlobal.CurrentStaff = staff;
             #endregion
             this.WindowState = WindowState.Maximized;
@@ -77,6 +77,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.listProduct;
         }
 
         private void MenuListSuplier(object sender, RoutedEventArgs e)
@@ -99,6 +100,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.listSupplier;
         }
 
         private void MenuAddProduct_Click(object sender, RoutedEventArgs e)
@@ -121,6 +123,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.addProduct;
         }
 
         private void MenuAddSupplier_Click(object sender, RoutedEventArgs e)
@@ -143,6 +146,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.addSupplier;
         }
 
         private void MenuManageSuplier(object sender, RoutedEventArgs e)
@@ -165,6 +169,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.listSupplier;
         }
 
 
@@ -198,6 +203,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.editSupplier;
         }
 
         private void MenuListCategory_Click(object sender, RoutedEventArgs e)
@@ -220,6 +226,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.listCategory;
         }
 
         private void MenuAddCategory_Click(object sender, RoutedEventArgs e)
@@ -242,6 +249,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.addCategory;
         }
 
         private void MenuAddPurchaseBill(object sender, RoutedEventArgs e)
@@ -264,6 +272,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.addPurchaseBill;
         }
 
         private void MenuListPurchaseBill(object sender, RoutedEventArgs e)
@@ -286,8 +295,55 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;
             }
+            CurrenTabTitle.Content = UsecaseStringContants.listPurchaseBill;
         }
 
+        private void MenuEndOfShift_Click(object sender, RoutedEventArgs e)
+        {
+            //If found  tab was EndOfShift, selected for Tabcontrol
+            var index = TabControlManagement.GetIndexByTitle(MainTabControl, UsecaseStringContants.listEndOfShift);
+            if (index >= 0)
+            {
+                MainTabControl.SelectedIndex = index;
+            }
+            //If not found tab was EndOfShift, add and selected
+            else
+            {
+                ListEndOfShiftUserControl listEndOfShiftUserControl = new ListEndOfShiftUserControl() { CanAprrove = true};
+                listEndOfShiftUserControl.SetupButton();
+                CustomTabItem customTabItem = new CustomTabItem()
+                {
+                    Title = UsecaseStringContants.listEndOfShift,
+                    Content = listEndOfShiftUserControl
+                };
+                MainTabControl.Items.Add(customTabItem);
+                MainTabControl.SelectedItem = customTabItem;
+            }
+            CurrenTabTitle.Content = UsecaseStringContants.listEndOfShift;
+        }
 
+        private void MenuListSaleBill_Click(object sender, RoutedEventArgs e)
+        {
+            //If found  tab was ListSaleBill, selected for Tabcontrol
+            var index = TabControlManagement.GetIndexByTitle(MainTabControl, UsecaseStringContants.listSaleBill);
+            if (index >= 0)
+            {
+                MainTabControl.SelectedIndex = index;
+            }
+            //If not found tab was ListSaleBill, add and selected
+            else
+            {
+                ListSaleBillUserControl listSaleBillUserControl = new ListSaleBillUserControl();
+                listSaleBillUserControl.SetUpForAdmin();
+                CustomTabItem customTabItem = new CustomTabItem()
+                {
+                    Title = UsecaseStringContants.listSaleBill,
+                    Content = listSaleBillUserControl
+                };
+                MainTabControl.Items.Add(customTabItem);
+                MainTabControl.SelectedItem = customTabItem;
+            }
+            CurrenTabTitle.Content = UsecaseStringContants.listSaleBill;
+        }
     }
 }
