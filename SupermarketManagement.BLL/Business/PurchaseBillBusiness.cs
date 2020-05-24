@@ -33,6 +33,7 @@ namespace SupermarketManagement.BLL.Business
             foreach (var item in entity.PurchaseBillDetailViewModels)
             {
                 var purchaseBillDetail = item.MapToPurchaseBillDetail();
+                purchaseBillDetail.PurchaseBillId = purchaseBill.PurchaseBillId;
                 _purchaseBillDetailRepository.Add(purchaseBillDetail);
             }
             
@@ -46,7 +47,7 @@ namespace SupermarketManagement.BLL.Business
 
         public List<PurchaseBill> GetAll()
         {
-            return _purchaseBillRepository.GetAll().ToList();
+            return _purchaseBillRepository.GetAll().OrderByDescending(p => p.CreatedDate).ToList();
         }
 
         public PurchaseBill GetById(object id)

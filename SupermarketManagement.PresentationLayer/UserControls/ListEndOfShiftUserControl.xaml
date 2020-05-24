@@ -39,6 +39,7 @@
                         <GridViewColumn Header="Từ(hh)"  DisplayMemberBinding="{Binding From}" />
                         <GridViewColumn Header="Đến(hh)"  DisplayMemberBinding="{Binding To}" />
                         <GridViewColumn Header="Tổng giờ làm"  DisplayMemberBinding="{Binding TotalHours}" />
+                        <GridViewColumn Header="Tổng tiền"  DisplayMemberBinding="{Binding TotalMoney}" />
                         <GridViewColumn Header="Phê duyệt" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>

@@ -19,9 +19,9 @@ namespace Supermarketmanagement.PresentationLayer.Windows
         public MainManagementWindow()
         {
             #region Staff to test
-            StaffBusiness staffBusiness = new StaffBusiness();
-            var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
-            StaffGlobal.CurrentStaff = staff;
+            //StaffBusiness staffBusiness = new StaffBusiness();
+            //var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
+            //StaffGlobal.CurrentStaff = staff;
             #endregion
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
@@ -39,21 +39,13 @@ namespace Supermarketmanagement.PresentationLayer.Windows
 
         private void LoadMainTabControl()
         {
-            //ListProductUserControl listProductUserControl = new ListProductUserControl();
-            //CustomTabItem customTabItem = new CustomTabItem() { Title = "Tab Default", Content = listProductUserControl, Name = "Default" };
-            //ActionTabControl(MainTabControl);
+            MenuStatistics_Click(null, null);
+            //AddPurchaseBillUserControl addPurchaseBillUserControl = new AddPurchaseBillUserControl();
+            ////EditPurchaseBillUserControl editPurchaseBillUserControl = new EditPurchaseBillUserControl();
+            //CustomTabItem customTabItem = new CustomTabItem() { Title = "Tab Default", Content = addPurchaseBillUserControl };
+
             //MainTabControl.Items.Clear();
             //MainTabControl.Items.Add(customTabItem);
-
-            //AddProductUserControl addProductUserControl = new AddProductUserControl();
-            //CustomTabItem customTabItem = new CustomTabItem() { Title = "Tab Default", Content = addProductUserControl};
-
-            AddPurchaseBillUserControl addPurchaseBillUserControl = new AddPurchaseBillUserControl();
-            //EditPurchaseBillUserControl editPurchaseBillUserControl = new EditPurchaseBillUserControl();
-            CustomTabItem customTabItem = new CustomTabItem() { Title = "Tab Default", Content = addPurchaseBillUserControl };
-
-            MainTabControl.Items.Clear();
-            MainTabControl.Items.Add(customTabItem);
         }
 
 
@@ -344,6 +336,29 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listSaleBill;
+        }
+
+        private void MenuStatistics_Click(object sender, RoutedEventArgs e)
+        {
+            //If found  tab was Statistics, selected for Tabcontrol
+            var index = TabControlManagement.GetIndexByTitle(MainTabControl, UsecaseStringContants.statistics);
+            if (index >= 0)
+            {
+                MainTabControl.SelectedIndex = index;
+            }
+            //If not found tab was Statistics, add and selected
+            else
+            {
+                StatisticsUserControl statisticsUserControl = new StatisticsUserControl();
+                CustomTabItem customTabItem = new CustomTabItem()
+                {
+                    Title = UsecaseStringContants.statistics,
+                    Content = statisticsUserControl
+                };
+                MainTabControl.Items.Add(customTabItem);
+                MainTabControl.SelectedItem = customTabItem;
+            }
+            CurrenTabTitle.Content = UsecaseStringContants.statistics;
         }
     }
 }

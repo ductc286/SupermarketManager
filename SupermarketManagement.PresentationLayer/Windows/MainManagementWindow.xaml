@@ -42,7 +42,7 @@
             </MenuItem>
             <MenuItem Header="Quản lý bán hàng" Click="MenuListSaleBill_Click"></MenuItem>
             <MenuItem Header="Phê duyệt ca làm việc"  Click="MenuEndOfShift_Click"></MenuItem>
-            <MenuItem Header="Thống kê"></MenuItem>
+            <MenuItem Header="Thống kê" Click="MenuStatistics_Click"></MenuItem>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
             <!--<Label>ToolBar: Chức năng này sẽ sớm hoàn thành!</Label>-->

@@ -12,10 +12,12 @@ namespace SupermarketManagement.BLL.Business
     public class CategoryBusiness : ICategoryBusiness
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IProductRepository _productRepository;
 
         public CategoryBusiness()
         {
             _categoryRepository = new CategoryRepository();
+            _productRepository = new ProductRepository();
         }
 
         public bool Add(CategoryViewModel entity)
@@ -34,12 +36,21 @@ namespace SupermarketManagement.BLL.Business
 
         public bool Delete(object id)
         {
-            throw new NotImplementedException();
+            var entity = _categoryRepository.GetById(id);
+            if (entity == null)
+            {
+                return false;
+            }
+            if (_productRepository.GetAll().Any(p => p.CategoryId == entity.CategoryId))
+            {
+                return false;
+            }
+            return _categoryRepository.Delete(entity);
         }
 
         public List<Category> GetAll()
         {
-            return _categoryRepository.GetAll().ToList();
+            return _categoryRepository.GetAll().OrderByDescending(c => c.CategoryId).ToList();
         }
 
         public Category GetById(object id)

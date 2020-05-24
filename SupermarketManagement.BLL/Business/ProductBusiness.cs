@@ -12,9 +12,13 @@ namespace SupermarketManagement.BLL.Business
     public class ProductBusiness : IProductBusiness
     {
         private readonly IProductRepository _productRepository;
+        private readonly IPurchaseBillDetailRepository _purchaseBillDetailRepository;
+        private readonly ISaleBillDetailRepository _saleBillDetailRepository;
         public ProductBusiness()
         {
             _productRepository = new ProductRepository();
+            _purchaseBillDetailRepository = new PurchaseBillDetailRepository();
+            _saleBillDetailRepository = new SaleBillDetailRepository();
         }
 
         public bool Add(ProductViewModel entity)
@@ -39,12 +43,22 @@ namespace SupermarketManagement.BLL.Business
 
         public bool Delete(object id)
         {
-            throw new NotImplementedException();
+            var entity = _productRepository.GetById(id);
+            if (entity == null)
+            {
+                return false;
+            }
+            if (_purchaseBillDetailRepository.GetAll().Any(p => p.ProductId == entity.ProductId)
+                || _saleBillDetailRepository.GetAll().Any(p => p.ProductId == entity.ProductId))
+            {
+                return false;
+            }
+            return _productRepository.Delete(entity);
         }
 
         public List<Product> GetAll()
         {
-            return _productRepository.GetAll().ToList();
+            return _productRepository.GetAll().OrderByDescending(p => p.ProductId).ToList();
         }
 
         public Supplier GetById(object id)

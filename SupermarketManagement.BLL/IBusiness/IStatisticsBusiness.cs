@@ -1,23 +1,24 @@
-﻿using System;
+﻿using Supermarketmanagement.Core.ViewModels;
+using System;
 
 namespace SupermarketManagement.BLL.IBusiness
 {
     public interface IStatisticsBusiness
     {
-        #region Products sale
-        int CountProductsSoldByInterval(DateTime fromDate, DateTime toDate);
-        int CountProducts();
-
-        #endregion
-
-        #region SaleBill
+        #region Sale
         int CountSaleBillByInterval(DateTime fromDate, DateTime toDate);
-        int GetSaleBillByInterval(DateTime fromDate, DateTime toDate);
+        long CountSaleMoneyByInterval(DateTime fromDate, DateTime toDate);
+        long CountProductsSoldByInterval(DateTime fromDate, DateTime toDate);
+
         #endregion
 
-        #region PurchaseBill
+        #region Purchase
         int CountPurchaseBillByInterval(DateTime fromDate, DateTime toDate);
-        int GetPurchaseBillInterval(DateTime fromDate, DateTime toDate);
+        long CountPurchaseMoneyByInterval(DateTime fromDate, DateTime toDate);
+        long CountProductsPurchasedByInterval(DateTime fromDate, DateTime toDate);
+
         #endregion
+
+        StatisticsViewModel GetStatisticsViewModel(DateTime fromDate, DateTime toDate);
     }
 }

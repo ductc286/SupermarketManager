@@ -1,4 +1,5 @@
-﻿using Supermarketmanagement.PresentationLayer.Windows;
+﻿using Supermarketmanagement.Core.ViewModels;
+using Supermarketmanagement.PresentationLayer.Windows;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
 using SupermarketManagement.Core.Models;
@@ -19,7 +20,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             InitializeComponent();
             _supplierBusiness = new SupplierBusiness();
-            suppliers = _supplierBusiness.GetAll();
+            
             InitializeData();
         }
 
@@ -28,14 +29,10 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
-            LoadList(suppliers);
+            suppliers = _supplierBusiness.GetAll();
+            ListSuppliers.ItemsSource = suppliers;
         }
 
-        public void LoadList(List<Supplier> suppliers)
-        {
-            ListSuppliers.ItemsSource = suppliers;
-            
-        }
 
         private void OpenWindow_Edit(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -48,6 +45,34 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             {
                 EditSupplierWindow editSupplierWindow = new EditSupplierWindow(supplier);
                 editSupplierWindow.Show();
+            }
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var obj = (Supplier)ListSuppliers.SelectedItem;
+            if (obj == null)
+            {
+                MessageBox.Show("Chưa có mục nào được chọn!", "Delete", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            else if (obj != null)
+            {
+                var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa danh mục này?", "Delete", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                if (confirm == MessageBoxResult.OK)
+                {
+                    bool isSuccess = _supplierBusiness.Delete(obj.SupplierId);
+                    if (isSuccess)
+                    {
+                        InitializeData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoá không thành công, có thể mục này không được phép xóa.", "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    
+                }
+
             }
         }
     }

@@ -14,9 +14,13 @@ namespace SupermarketManagement.BLL.Business
     public class SupplierBusiness : ISupplierBusiness
     {
         private readonly ISupplierRepository _supplierRepository;
+        private readonly IProductRepository _productRepository;
+        private readonly IPurchaseBillBusiness _purchaseBillBusiness;
         public SupplierBusiness()
         {
             _supplierRepository = new SupplierRepository();
+            _productRepository = new ProductRepository();
+            _purchaseBillBusiness = new PurchaseBillBusiness();
         }
 
         public bool Add(SupplierViewModel entity)
@@ -38,6 +42,11 @@ namespace SupermarketManagement.BLL.Business
         {
             var entity = _supplierRepository.GetById(id);
             if (entity == null)
+            {
+                return false;
+            }
+            if (_productRepository.GetAll().Any(p => p.SupplierId == entity.SupplierId)
+                || _purchaseBillBusiness.GetAll().Any(p => p.SupplierId == entity.SupplierId))
             {
                 return false;
             }

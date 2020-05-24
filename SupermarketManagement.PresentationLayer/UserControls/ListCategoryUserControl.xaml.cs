@@ -21,8 +21,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             InitializeComponent();
             _categoryBusiness = new CategoryBusiness();
-            categories = _categoryBusiness.GetAll();
             InitializeData();
+            
+            this.DataContext = categories;
         }
 
         /// <summary>
@@ -30,14 +31,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
-            LoadList(categories);
-        }
-
-        public void LoadList(List<Category> categories)
-        {
+            categories = _categoryBusiness.GetAll();
             ListCategories.ItemsSource = categories;
 
         }
+
 
         private void Open_EditCategory(object sender, RoutedEventArgs e)
         {
@@ -49,7 +47,49 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             else
             {
                 EditCategoryWindow editCategoryWindow = new EditCategoryWindow(category);
-                editCategoryWindow.Show();
+                var show = editCategoryWindow.ShowDialog();
+                editCategoryWindow.Closed += dialog_Closed;
+                categories = _categoryBusiness.GetAll();
+                this.DataContext = categories;
+                ListCategories.ItemsSource = null;
+                ListCategories.ItemsSource = categories;
+
+            }
+        }
+        private void dialog_Closed(object sender, System.EventArgs e)
+        {
+            Button_Edit.Content = "NEw Edit";
+            categories = _categoryBusiness.GetAll();
+            this.DataContext = categories;
+            ListCategories.ItemsSource = null;
+            ListCategories.ItemsSource = categories;
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var obj = (Category)ListCategories.SelectedItem;
+            if (obj == null)
+            {
+                MessageBox.Show("Chưa có mục nào được chọn!", "Delete", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            else if (obj != null)
+            {
+                var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa danh mục này?", "Delete", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                if (confirm == MessageBoxResult.OK)
+                {
+                    bool isSuccess = _categoryBusiness.Delete(obj.CategoryId);
+                    if (isSuccess)
+                    {
+                        InitializeData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoá không thành công, có thể mục này không được phép xóa.", "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
+                }
+
             }
         }
     }

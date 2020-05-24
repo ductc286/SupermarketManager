@@ -60,7 +60,7 @@
                 Style="{StaticResource Form-Button}"
                 Click="Edit_Click"
             >Sửa</Button>
-            <Button Style="{StaticResource Form-Button}">Xóa</Button>
+            <Button Style="{StaticResource Form-Button}" Click="ButtonDelete_Click">Xóa</Button>
 
         </StackPanel>
         

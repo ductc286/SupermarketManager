@@ -1,5 +1,6 @@
 ﻿using Supermarketmanagement.Core.Common;
 using Supermarketmanagement.Core.ViewModels;
+using Supermarketmanagement.PresentationLayer.Custom;
 using Supermarketmanagement.PresentationLayer.Windows;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
@@ -87,10 +88,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             }
         }
 
-        private void DataGrid_PurchaseBillDetail_Changed(object sender, SelectionChangedEventArgs e)
-        {
-            saleBillViewModel.TotalMoney = saleBillViewModel.TotalMoney;
-        }
+
 
         private void Add_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -106,6 +104,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                     if (isSuccess)
                     {
                         MessageBox.Show("Đã thêm thành công!", "Add", MessageBoxButton.OK, MessageBoxImage.Information);
+                        saleBillViewModel = new SaleBillViewModel();
+                        this.DataContext = saleBillViewModel;
+                        Load_DataGrid_SaleBillDetail();
                     }
                     else
                     {
@@ -116,6 +117,21 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         }
 
         private void Quantity_Changed(object sender, TextChangedEventArgs e)
+        {
+            saleBillViewModel.TotalMoney = saleBillViewModel.TotalMoney;
+            var row = GetParent<DataGridRow>((CustomTextBox)sender);
+            var index = DataGrid_SaleBillDetail.Items.IndexOf(row.Item);
+            if (index < saleBillViewModel.SaleBillDetailViewModels.Count)
+            {
+                if (saleBillViewModel.SaleBillDetailViewModels[index].Quantity > saleBillViewModel.SaleBillDetailViewModels[index].Inventory)
+                {
+                    saleBillViewModel.SaleBillDetailViewModels[index].Quantity = saleBillViewModel.SaleBillDetailViewModels[index].Inventory;
+                }
+                saleBillViewModel.TotalMoney = saleBillViewModel.TotalMoney;
+            }
+        }
+
+        private void DataGrid_SaleBillDetail_Changed(object sender, SelectionChangedEventArgs e)
         {
             saleBillViewModel.TotalMoney = saleBillViewModel.TotalMoney;
         }

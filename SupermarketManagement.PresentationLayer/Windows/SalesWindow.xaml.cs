@@ -17,16 +17,18 @@ namespace Supermarketmanagement.PresentationLayer.Windows
         public SalesWindow()
         {
             #region Staff to test
-            StaffBusiness staffBusiness = new StaffBusiness();
-            var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
-            StaffGlobal.CurrentStaff = staff;
+            //StaffBusiness staffBusiness = new StaffBusiness();
+            //var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
+            //StaffGlobal.CurrentStaff = staff;
             #endregion
             //this.WindowState = WindowState.Maximized;
             
             InitializeComponent();
-            this.Width = 1370;
-            this.Height = 770;
+            //this.Width = 1300;
+            //this.Height = 720;
+            this.WindowState = WindowState.Maximized;
             InitializeData();
+
         }
 
         /// <summary>
@@ -41,11 +43,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
 
         private void LoadMainTabControl()
         {
-            AddMultilpleSaleBillUserControl addMultilpleSaleBillUserControl = new AddMultilpleSaleBillUserControl();
-            CustomTabItem customTabItem = new CustomTabItem() { Title = UsecaseStringContants.addSaleBill, Content = addMultilpleSaleBillUserControl };
-            MainTabControl.Items.Clear();
-            MainTabControl.Items.Add(customTabItem);
-            CurrenTabTitle.Content = UsecaseStringContants.addSaleBill;
+            MenuAddSaleBill_Click(null, null);
         }
 
         private void MenuAddSaleBill_Click(object sender, RoutedEventArgs e)

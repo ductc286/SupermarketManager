@@ -41,8 +41,13 @@ namespace SupermarketManagement.BLL.Business
             return _endOfShiftRepository.Add(endOfShift);
         }
 
-        public void Approve(EndOfShift entity)
+        public void Approve(EndOfShift oldEntity)
         {
+            var entity = _endOfShiftRepository.GetById(oldEntity.EndOfShiftId);
+            if (entity == null)
+            {
+                return;
+            }
             entity.IsApproved = true;
             _endOfShiftRepository.Update(entity);
             DateTime fromDatetime = new DateTime(entity.CreatedDate.Year, entity.CreatedDate.Month, entity.CreatedDate.Day, entity.From, 0, 0);
