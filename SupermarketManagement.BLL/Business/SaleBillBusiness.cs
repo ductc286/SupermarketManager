@@ -62,11 +62,11 @@ namespace SupermarketManagement.BLL.Business
             }
             else if (StaffGlobal.CurrentStaff.StaffRole == (int)StaffRole.Administrator)
             {
-                return _saleBillRepository.GetAll().ToList();
+                return _saleBillRepository.GetAll().OrderByDescending(s => s.CreatedDate).ToList();
             }
             else
             {
-                return _saleBillRepository.FindAll(s => s.StaffId == StaffGlobal.CurrentStaff.StaffId).ToList();
+                return _saleBillRepository.FindAll(s => s.StaffId == StaffGlobal.CurrentStaff.StaffId).OrderByDescending(s => s.CreatedDate).ToList();
             }
         }
 

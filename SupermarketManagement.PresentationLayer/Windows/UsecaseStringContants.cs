@@ -22,5 +22,7 @@
 
         public const string addEndOfShift = "Thêm phiếu chốt ca";
         public const string listEndOfShift = "DS phiếu chốt ca";
+
+        public const string statistics = "Thống kê";
     }
 }

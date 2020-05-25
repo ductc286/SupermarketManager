@@ -85,6 +85,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                     if (isSuccess)
                     {
                         MessageBox.Show("Đã thêm thành công!", "Add", MessageBoxButton.OK, MessageBoxImage.Information);
+                        purchaseBillViewModel = new PurchaseBillViewModel();
+                        this.DataContext = purchaseBillViewModel;
+                        Load_DataGrid_PurchaseBillDetail();
                     }
                     else
                     {

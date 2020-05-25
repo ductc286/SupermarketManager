@@ -144,7 +144,7 @@
             </Grid.RowDefinitions>
             <DataGrid
                      Width="1120"
-                    SelectionChanged="DataGrid_PurchaseBillDetail_Changed"
+                    SelectionChanged="DataGrid_SaleBillDetail_Changed"
                     ColumnWidth="auto"
                     ScrollViewer.CanContentScroll="True" 
                     ScrollViewer.VerticalScrollBarVisibility="Auto"

@@ -2,6 +2,7 @@
 using Supermarketmanagement.Core.ViewModels;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
+using SupermarketManagement.Core.Models;
 using System.Windows;
 
 namespace Supermarketmanagement.PresentationLayer.Windows
@@ -35,10 +36,23 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 {
                     StaffGlobal.CurrentStaff = currentStaff;
                     MessageBox.Show("Đăng nhập thành công", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
-                    MainManagementWindow mainManagementWindow = new MainManagementWindow();
-                    this.Hide();
-                    mainManagementWindow.Show();
-                    this.Close();
+                    switch (StaffGlobal.CurrentStaff.StaffRole)
+                    {
+                        case (int)StaffRole.Administrator:
+                            MainManagementWindow mainManagementWindow = new MainManagementWindow();
+                            this.Hide();
+                            mainManagementWindow.Show();
+                            this.Close();
+                            break;
+                        case (int)StaffRole.SaleStaff:
+                            SalesWindow salesWindow = new SalesWindow();
+                            this.Hide();
+                            salesWindow.Show();
+                            this.Close();
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             else

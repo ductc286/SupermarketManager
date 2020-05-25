@@ -67,6 +67,7 @@
     <Compile Include="Models\StaffRole.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\DateTimeUtilities.cs" />
     <Compile Include="Utilities\IdUtilities.cs" />
     <Compile Include="Utilities\MoneyUtilities.cs" />
     <Compile Include="ViewModels\EndOfShiftViewModel.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="ViewModels\SaleBillViewModel.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\StatisticsViewModel.cs" />
     <Compile Include="ViewModels\SupplierViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

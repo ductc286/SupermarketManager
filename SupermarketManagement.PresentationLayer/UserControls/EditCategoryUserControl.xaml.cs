@@ -1,6 +1,7 @@
 ﻿using Supermarketmanagement.Core.ViewModels;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,6 +12,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     /// </summary>
     public partial class EditCategoryUserControl : UserControl
     {
+        public event EventHandler ExecuteMethod;
         public CategoryViewModel categoryViewModel;
         private readonly ICategoryBusiness _categoryBusiness;
 
@@ -20,6 +22,16 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             this.categoryViewModel = categoryViewModel;
             InitializeComponent();
             InitializeData();
+        }
+
+        protected virtual void OnExecuteMethod()
+        {
+            if (ExecuteMethod != null) ExecuteMethod(this, EventArgs.Empty);
+        }
+
+        public void ChildButton_Click(object sender, EventArgs e)
+        {
+            OnExecuteMethod();
         }
 
         private void InitializeData()

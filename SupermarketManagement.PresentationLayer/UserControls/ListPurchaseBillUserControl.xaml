@@ -48,7 +48,7 @@
         </ScrollViewer>
         
         <StackPanel Grid.Row="1" Margin="0,10,0,0"  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Button Style="{StaticResource Form-Button}">Tạo mới</Button>
+                
                 <Button Style="{StaticResource Form-Button}"
                         Click="Open_EditPurchaseBill"
                         >Sửa</Button>

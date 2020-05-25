@@ -41,11 +41,11 @@
         </ScrollViewer>
 
         <StackPanel Grid.Row="1" Margin="0,10,0,0"  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
-            <Button Style="{StaticResource Form-Button}">Tạo mới</Button>
+            
             <Button Style="{StaticResource Form-Button}"
                         Click="OpenWindow_Edit"
                         >Sửa</Button>
-            <Button Style="{StaticResource Form-Button}">Xóa</Button>
+            <Button Style="{StaticResource Form-Button}" Click="ButtonDelete_Click">Xóa</Button>
 
         </StackPanel>
     </Grid>
