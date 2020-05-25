@@ -21,7 +21,7 @@
                 <ComboBoxItem Content="Tháng này" Tag="ThisMonth" />
                 <ComboBoxItem Content="Năm này" Tag="ThisYear" />
             </ComboBox>
-            <Button Content="Cập nhật" Style="{StaticResource Form-Button }"  />
+            
         </StackPanel>
         <Grid Grid.Row="1" Margin="0 20 0 0">
             <Grid.ColumnDefinitions>

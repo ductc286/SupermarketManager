@@ -81,6 +81,12 @@
     <Compile Include="UserControls\AddCategoryUserControl.xaml.cs">
       <DependentUpon>AddCategoryUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AddEndOfShiftUserControl.xaml.cs">
+      <DependentUpon>AddEndOfShiftUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddMultilpleSaleBillUserControl.xaml.cs">
+      <DependentUpon>AddMultilpleSaleBillUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddProductUserControl.xaml.cs">
       <DependentUpon>AddProductUserControl.xaml</DependentUpon>
     </Compile>
@@ -96,6 +102,9 @@
     <Compile Include="UserControls\DetailPurchaseBillUserControl.xaml.cs">
       <DependentUpon>DetailPurchaseBillUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DetailSaleBillUserControl.xaml.cs">
+      <DependentUpon>DetailSaleBillUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DetailSupplierUserControl.xaml.cs">
       <DependentUpon>DetailSupplierUserControl.xaml</DependentUpon>
     </Compile>
@@ -108,11 +117,17 @@
     <Compile Include="UserControls\EditPurchaseBillUserControl.xaml.cs">
       <DependentUpon>EditPurchaseBillUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EditSaleBillUserControl.xaml.cs">
+      <DependentUpon>EditSaleBillUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\EditSupplierUserControl.xaml.cs">
       <DependentUpon>EditSupplierUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ListCategoryUserControl.xaml.cs">
       <DependentUpon>ListCategoryUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ListEndOfShiftUserControl.xaml.cs">
+      <DependentUpon>ListEndOfShiftUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ListProductUserControl.xaml.cs">
       <DependentUpon>ListProductUserControl.xaml</DependentUpon>
@@ -120,14 +135,23 @@
     <Compile Include="UserControls\ListPurchaseBillUserControl.xaml.cs">
       <DependentUpon>ListPurchaseBillUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ListSaleBillUserControl.xaml.cs">
+      <DependentUpon>ListSaleBillUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ListSupplierUserControl.xaml.cs">
       <DependentUpon>ListSupplierUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ManageSupplierUserControl.xaml.cs">
       <DependentUpon>ManageSupplierUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\StatisticsUserControl.xaml.cs">
+      <DependentUpon>StatisticsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DetailPurchaseBillUserWindow.xaml.cs">
       <DependentUpon>DetailPurchaseBillUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DetailsWindow.xaml.cs">
+      <DependentUpon>DetailsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditCategoryWindow.xaml.cs">
       <DependentUpon>EditCategoryWindow.xaml</DependentUpon>
@@ -137,6 +161,9 @@
     </Compile>
     <Compile Include="Windows\EditPurchaseBillWindow.xaml.cs">
       <DependentUpon>EditPurchaseBillWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditSaleBillWindow.xaml.cs">
+      <DependentUpon>EditSaleBillWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditSupplierWindow.xaml.cs">
       <DependentUpon>EditSupplierWindow.xaml</DependentUpon>
@@ -150,8 +177,8 @@
     <Compile Include="Windows\SalesWindow.xaml.cs">
       <DependentUpon>SalesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SearchPurchaseDetailsWindow.xaml.cs">
-      <DependentUpon>SearchPurchaseDetailsWindow.xaml</DependentUpon>
+    <Compile Include="Windows\SearchProductsWindow.xaml.cs">
+      <DependentUpon>SearchProductsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\StringConstants.cs" />
     <Compile Include="App.xaml.cs">
@@ -164,6 +191,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\AddCategoryUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddEndOfShiftUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddMultilpleSaleBillUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,6 +222,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\DetailSaleBillUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\DetailSupplierUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,11 +242,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\EditSaleBillUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\EditSupplierUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ListCategoryUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ListEndOfShiftUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +266,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\ListSaleBillUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\ListSupplierUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -227,7 +278,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\StatisticsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\DetailPurchaseBillUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\EditPurchaseBillWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditSaleBillWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,7 +322,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SearchPurchaseDetailsWindow.xaml">
+    <Page Include="Windows\SearchProductsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -303,6 +366,13 @@
       <Project>{d22a34ad-11be-4fcb-8fb1-4b5a22022904}</Project>
       <Name>SupermarketManagement.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\system\thongkenhap2.png" />
+    <Resource Include="Images\system\thongkexuat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\system\len.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

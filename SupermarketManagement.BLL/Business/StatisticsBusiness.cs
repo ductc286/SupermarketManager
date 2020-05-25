@@ -43,14 +43,14 @@ namespace SupermarketManagement.BLL.Business
             try
             {
                 sum = _saleBillRepository.GetAll().Where(s =>
-            (s.CreatedDate.Year > fromDate.Year
-                || (s.CreatedDate.Year == fromDate.Year && s.CreatedDate.Month > fromDate.Month
-                || (s.CreatedDate.Year == fromDate.Year && s.CreatedDate.Month == fromDate.Month && s.CreatedDate.Day >= fromDate.Day))
-             ) &&
-             (s.CreatedDate.Year < toDate.Year
-                || (s.CreatedDate.Year == toDate.Year && s.CreatedDate.Month < toDate.Month
-                || (s.CreatedDate.Year == toDate.Year && s.CreatedDate.Month == toDate.Month && s.CreatedDate.Day <= toDate.Day))
-             )).Sum(p => p.TotalMoney);
+             (s.CreatedDate.Year > fromDate.Year
+                 || (s.CreatedDate.Year == fromDate.Year && s.CreatedDate.Month > fromDate.Month)
+                 || (s.CreatedDate.Year == fromDate.Year && s.CreatedDate.Month == fromDate.Month && s.CreatedDate.Day >= fromDate.Day)
+              ) &&
+              (s.CreatedDate.Year < toDate.Year
+                 || (s.CreatedDate.Year == toDate.Year && s.CreatedDate.Month < toDate.Month)
+                 || (s.CreatedDate.Year == toDate.Year && s.CreatedDate.Month == toDate.Month && s.CreatedDate.Day <= toDate.Day)
+              )).Sum(p => p.TotalMoney);
             }
             catch (Exception)
             {
@@ -150,7 +150,7 @@ namespace SupermarketManagement.BLL.Business
             StatisticsViewModel statisticsViewModel = new StatisticsViewModel();
             statisticsViewModel.TotalSaleBill = CountSaleBillByInterval(fromDate, toDate);
             statisticsViewModel.TotalProductsSold = CountProductsSoldByInterval(fromDate, toDate);
-            statisticsViewModel.TotalProductsSold = CountProductsSoldByInterval(fromDate, toDate);
+            statisticsViewModel.TotalSalesMoney = CountSaleMoneyByInterval(fromDate, toDate);
 
             statisticsViewModel.TotalPurchaseBill = CountPurchaseBillByInterval(fromDate, toDate);
             statisticsViewModel.TotalProductsPurchased = CountProductsPurchasedByInterval(fromDate, toDate);
