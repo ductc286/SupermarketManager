@@ -33,7 +33,7 @@ namespace Supermarketmanagement.Core.Common
                 {
                     return "";
                 }
-                string result = Enum.GetName(typeof(StaffRole), CurrentStaff.StaffRole);
+                string result = Enum.GetName(typeof(EStaffRole), CurrentStaff.StaffRole);
                 return result;
             }
         }

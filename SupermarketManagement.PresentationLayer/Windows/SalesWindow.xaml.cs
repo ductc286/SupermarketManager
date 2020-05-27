@@ -1,9 +1,7 @@
 ﻿using Supermarketmanagement.Core.Common;
-using Supermarketmanagement.Core.ViewModels;
 using Supermarketmanagement.PresentationLayer.Common;
 using Supermarketmanagement.PresentationLayer.Custom;
 using Supermarketmanagement.PresentationLayer.UserControls;
-using SupermarketManagement.BLL.Business;
 using System;
 using System.Windows;
 
@@ -22,12 +20,14 @@ namespace Supermarketmanagement.PresentationLayer.Windows
             //StaffGlobal.CurrentStaff = staff;
             #endregion
             //this.WindowState = WindowState.Maximized;
-            
+
             InitializeComponent();
             //this.Width = 1300;
             //this.Height = 720;
-            this.WindowState = WindowState.Maximized;
+            //this.WindowState = WindowState.Maximized;
             InitializeData();
+            this.Width = 1300;
+            this.Height = 720;
 
         }
 
@@ -67,6 +67,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.addSaleBill;
+            this.Title = UsecaseStringContants.addSaleBill;
         }
 
         private void MenuListSaleBill_Click(object sender, RoutedEventArgs e)
@@ -90,6 +91,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listSaleBill;
+            this.Title = UsecaseStringContants.listSaleBill;
         }
 
         private void MenuAddEndOfShift_Click(object sender, RoutedEventArgs e)
@@ -113,6 +115,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.addEndOfShift;
+            this.Title = UsecaseStringContants.addEndOfShift;
         }
 
         private void MenuListEndOfShift_Click(object sender, RoutedEventArgs e)
@@ -136,6 +139,14 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listEndOfShift;
+            this.Title = UsecaseStringContants.listEndOfShift;
+        }
+
+        private void MenuChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePasswordUserControl changePasswordUserControl = new ChangePasswordUserControl();
+            DialogWindow dialogWindow = new DialogWindow(changePasswordUserControl, UsecaseStringContants.changePassword);
+            dialogWindow.ShowDialog();
         }
     }
 }

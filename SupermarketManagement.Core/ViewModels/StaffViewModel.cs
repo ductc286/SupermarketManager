@@ -6,11 +6,25 @@ namespace Supermarketmanagement.Core.ViewModels
 {
     public class StaffViewModel : BaseViewModel
     {
+        public StaffViewModel() { }
+
+        public StaffViewModel(Staff staff)
+        {
+            this.StaffId = staff.StaffId;
+            this.FullName = staff.FullName;
+            this.Account = staff.Account;
+            this.PhoneNumber = staff.PhoneNumber;
+            this.StaffRole = staff.StaffRole;
+            this.Note = staff.Note;
+            this.IsActive = staff.IsActive;
+            this.Email = staff.Email;
+            this.CreatedDate = staff.CreatedDate;
+        }
         public int StaffId { get; set; }
 
         private string _fullName;
-        [Required]
-        [MaxLength(150, ErrorMessage = "Tên có số kí tự tối đa là {1}")]
+        [Required(ErrorMessage = "Vui Lòng nhập Họ và tên")]
+        [StringLength(150, MinimumLength = 5, ErrorMessage = "Họ và tên cần có độ dài từ {2} đến {1} ký tự")]
         public string FullName
         {
             get { return _fullName; }
@@ -21,8 +35,8 @@ namespace Supermarketmanagement.Core.ViewModels
         }
 
         private string _account;
-        [Required]
-        [MaxLength(30)]
+        //[Required]
+        //[MaxLength(30)]
         public string Account
         {
             get { return _account; }
@@ -56,13 +70,17 @@ namespace Supermarketmanagement.Core.ViewModels
             }
         }
 
-        [Required]
-        public bool IsActive { get; set; } = true;
-
+        private bool _isActive = true;
+        public bool IsActive {
+            get { return _isActive; }
+            set
+            {
+                OnPropertyChanged(ref _isActive, value);
+            }
+        }
         public DateTime CreatedDate { get; set; }
 
-        private int _staffRole;
-        [MaxLength(255, ErrorMessage = "Ghi chú có số kí tự tối đa là {1}")]
+        private int _staffRole = (int)EStaffRole.SaleStaff;
         public int StaffRole
         {
             get { return _staffRole; }
@@ -71,8 +89,10 @@ namespace Supermarketmanagement.Core.ViewModels
                 OnPropertyChanged(ref _staffRole, value);
             }
         }
+
         private string _password;
-        [MaxLength(255, ErrorMessage = "Mật khẩu có số kí tự tối đa là {1}")]
+        [Required(ErrorMessage = "Vui Lòng mật khẩu")]
+        [StringLength(255, MinimumLength = 5, ErrorMessage = "Mật khẩu cần có độ dài từ {2} đến {1} ký tự")]
         public string Password
         {
             get { return _password; }

@@ -38,13 +38,13 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                     MessageBox.Show("Đăng nhập thành công", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
                     switch (StaffGlobal.CurrentStaff.StaffRole)
                     {
-                        case (int)StaffRole.Administrator:
+                        case (int)EStaffRole.Administrator:
                             MainManagementWindow mainManagementWindow = new MainManagementWindow();
                             this.Hide();
                             mainManagementWindow.Show();
                             this.Close();
                             break;
-                        case (int)StaffRole.SaleStaff:
+                        case (int)EStaffRole.SaleStaff:
                             SalesWindow salesWindow = new SalesWindow();
                             this.Hide();
                             salesWindow.Show();

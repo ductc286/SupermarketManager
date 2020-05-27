@@ -24,5 +24,11 @@
         public const string listEndOfShift = "DS phiếu chốt ca";
 
         public const string statistics = "Thống kê";
+
+        public const string changePassword = "Đổi mật khẩu";
+
+        public const string manageStaff = "Quản lý nhân viên";
+        public const string addStaff = "Thêm nhân viên";
+        public const string editStaff = "Sửa nhân viên";
     }
 }

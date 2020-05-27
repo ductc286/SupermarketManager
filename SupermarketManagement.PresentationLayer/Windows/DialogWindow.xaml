@@ -1,0 +1,15 @@
+﻿<Window x:Class="Supermarketmanagement.PresentationLayer.Windows.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.Windows"
+        mc:Ignorable="d"
+        MinHeight="400"
+        MinWidth="400"
+        Title="DialogWindow">
+    <StackPanel HorizontalAlignment="Center" CanHorizontallyScroll="True">
+        <Label Name="LabelTitle"></Label>
+        <TabControl Name="MainControl"></TabControl>
+    </StackPanel>
+</Window>

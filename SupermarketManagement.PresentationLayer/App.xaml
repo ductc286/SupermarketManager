@@ -103,6 +103,7 @@
 
         <Style x:Key="Form-CheckBox" TargetType="CheckBox">
             <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="5" />
         </Style>
     </Application.Resources>
     

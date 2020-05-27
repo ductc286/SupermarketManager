@@ -64,12 +64,14 @@
     <Compile Include="Models\SaleBill.cs" />
     <Compile Include="Models\SaleBillDetail.cs" />
     <Compile Include="Models\Staff.cs" />
-    <Compile Include="Models\StaffRole.cs" />
+    <Compile Include="Models\EStaffRole.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\DateTimeUtilities.cs" />
+    <Compile Include="Utilities\EncodeUtilities.cs" />
     <Compile Include="Utilities\IdUtilities.cs" />
     <Compile Include="Utilities\MoneyUtilities.cs" />
+    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\EndOfShiftViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />

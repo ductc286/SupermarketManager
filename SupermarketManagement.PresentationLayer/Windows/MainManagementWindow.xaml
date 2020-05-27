@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.Windows"
         xmlns:constants="clr-namespace:Supermarketmanagement.PresentationLayer.Windows;assembly=UsecaseStringContants"
         xmlns:common="clr-namespace:Supermarketmanagement.Core.Common;assembly=StaffGlobal"
-        
+        Icon="/Images/system/bgvip.png"
         mc:Ignorable="d"
         MinHeight="{Binding SystemParameters.PrimaryScreenHeigth}" 
         MinWidth="{Binding SystemParameters.PrimaryScreenWidth}"
@@ -18,7 +18,6 @@
     <DockPanel LastChildFill="True">
 
         <Menu DockPanel.Dock="Top" Padding="5">
-            <MenuItem Header="Home"></MenuItem>
             <MenuItem Header="Quản lý sản phẩm">
                 <MenuItem Header="Thêm" Click="MenuAddProduct_Click" />
                 <Separator  />
@@ -42,6 +41,7 @@
             </MenuItem>
             <MenuItem Header="Quản lý bán hàng" Click="MenuListSaleBill_Click"></MenuItem>
             <MenuItem Header="Phê duyệt ca làm việc"  Click="MenuEndOfShift_Click"></MenuItem>
+            <MenuItem Header="Quản lý nhân viên"  Click="MenuManageStaff_Click"></MenuItem>
             <MenuItem Header="Thống kê" Click="MenuStatistics_Click"></MenuItem>
         </Menu>
         <ToolBar DockPanel.Dock="Top">

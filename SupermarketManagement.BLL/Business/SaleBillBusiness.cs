@@ -60,7 +60,7 @@ namespace SupermarketManagement.BLL.Business
             {
                 return null;
             }
-            else if (StaffGlobal.CurrentStaff.StaffRole == (int)StaffRole.Administrator)
+            else if (StaffGlobal.CurrentStaff.StaffRole == (int)EStaffRole.Administrator)
             {
                 return _saleBillRepository.GetAll().OrderByDescending(s => s.CreatedDate).ToList();
             }

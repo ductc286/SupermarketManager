@@ -31,7 +31,7 @@ namespace SupermarketManagement.Core.Models
 
         public DateTime CreatedDate { get; set; }
 
-        public int StaffRole { get; set; }
+        public int StaffRole { get; set; } = (int)EStaffRole.SaleStaff;
 
         [MaxLength(255)]
         public string Note { get; set; }
@@ -39,5 +39,30 @@ namespace SupermarketManagement.Core.Models
         public virtual ICollection<SaleBill> SaleBills { get; set; }
         public virtual ICollection<PurchaseBill> PurchaseBills { get; set; }
         public virtual ICollection<EndOfShift> EndOfShifts { get; set; }
+
+        #region component to Only get data
+        public string StaffRoleString
+        {
+            get
+            {
+                var result = "";
+                switch (StaffRole)
+                {
+                    case (int)EStaffRole.SaleStaff:
+                        result = "Nhân viên bán hàng";
+                        break;
+                    case (int)EStaffRole.Administrator:
+                        result = "Người quản lý";
+                        break;
+                    default:
+                        result = "Nhân viên bán hàng";
+                        break;
+                }
+                return result;
+            }
+        }
+        #endregion
     }
+
+    
 }

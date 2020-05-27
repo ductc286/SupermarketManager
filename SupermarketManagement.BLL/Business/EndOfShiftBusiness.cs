@@ -70,7 +70,7 @@ namespace SupermarketManagement.BLL.Business
 
         public List<EndOfShift> GetAll()
         {
-            if (StaffGlobal.CurrentStaff.StaffRole == (int)StaffRole.Administrator)
+            if (StaffGlobal.CurrentStaff.StaffRole == (int)EStaffRole.Administrator)
             {
                 return _endOfShiftRepository.GetAll().OrderByDescending(e => e.CreatedDate).ToList();
             }

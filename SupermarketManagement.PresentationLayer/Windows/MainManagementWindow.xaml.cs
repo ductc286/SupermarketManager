@@ -70,6 +70,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listProduct;
+            this.Title = UsecaseStringContants.listProduct;
         }
 
         private void MenuListSuplier(object sender, RoutedEventArgs e)
@@ -93,6 +94,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listSupplier;
+            this.Title = UsecaseStringContants.listSupplier;
         }
 
         private void MenuAddProduct_Click(object sender, RoutedEventArgs e)
@@ -116,6 +118,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.addProduct;
+            this.Title = UsecaseStringContants.addProduct;
         }
 
         private void MenuAddSupplier_Click(object sender, RoutedEventArgs e)
@@ -139,6 +142,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.addSupplier;
+            this.Title = UsecaseStringContants.addSupplier;
         }
 
         private void MenuManageSuplier(object sender, RoutedEventArgs e)
@@ -162,6 +166,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listSupplier;
+            this.Title = UsecaseStringContants.listSupplier;
         }
 
 
@@ -196,6 +201,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.editSupplier;
+            this.Title = UsecaseStringContants.editSupplier;
         }
 
         private void MenuListCategory_Click(object sender, RoutedEventArgs e)
@@ -219,6 +225,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listCategory;
+            this.Title = UsecaseStringContants.listCategory;
         }
 
         private void MenuAddCategory_Click(object sender, RoutedEventArgs e)
@@ -242,6 +249,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.addCategory;
+            this.Title = UsecaseStringContants.addCategory;
         }
 
         private void MenuAddPurchaseBill(object sender, RoutedEventArgs e)
@@ -265,6 +273,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.addPurchaseBill;
+            this.Title = UsecaseStringContants.addPurchaseBill;
         }
 
         private void MenuListPurchaseBill(object sender, RoutedEventArgs e)
@@ -288,6 +297,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listPurchaseBill;
+            this.Title = UsecaseStringContants.listPurchaseBill;
         }
 
         private void MenuEndOfShift_Click(object sender, RoutedEventArgs e)
@@ -312,6 +322,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listEndOfShift;
+            this.Title = UsecaseStringContants.listEndOfShift;
         }
 
         private void MenuListSaleBill_Click(object sender, RoutedEventArgs e)
@@ -336,6 +347,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.listSaleBill;
+            this.Title = UsecaseStringContants.listSaleBill;
         }
 
         private void MenuStatistics_Click(object sender, RoutedEventArgs e)
@@ -359,6 +371,31 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MainTabControl.SelectedItem = customTabItem;
             }
             CurrenTabTitle.Content = UsecaseStringContants.statistics;
+            this.Title = UsecaseStringContants.statistics;
+        }
+
+        private void MenuManageStaff_Click(object sender, RoutedEventArgs e)
+        {
+            //If found  tab was ManageStaff, selected for Tabcontrol
+            var index = TabControlManagement.GetIndexByTitle(MainTabControl, UsecaseStringContants.manageStaff);
+            if (index >= 0)
+            {
+                MainTabControl.SelectedIndex = index;
+            }
+            //If not found tab was ManageStaff, add and selected
+            else
+            {
+                ListStaffUserControl listStaffUserControl = new ListStaffUserControl();
+                CustomTabItem customTabItem = new CustomTabItem()
+                {
+                    Title = UsecaseStringContants.manageStaff,
+                    Content = listStaffUserControl
+                };
+                MainTabControl.Items.Add(customTabItem);
+                MainTabControl.SelectedItem = customTabItem;
+            }
+            CurrenTabTitle.Content = UsecaseStringContants.manageStaff;
+            this.Title = UsecaseStringContants.manageStaff;
         }
     }
 }

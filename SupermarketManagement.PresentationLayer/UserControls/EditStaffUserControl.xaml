@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="Supermarketmanagement.PresentationLayer.UserControls.EditStaffUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
+             mc:Ignorable="d" 
+             Width="800"
+             Height="450"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label
+                Style="{StaticResource Form-Label}"
+                Content="Mã nhân viên"/>
+            <TextBox 
+                Style="{StaticResource Form-TextBox-Readonly}"
+                Name="StaffId"
+                Text="{Binding Path=StaffId}"/>
+            <Label
+                Style="{StaticResource Form-Label}"
+                Content="Họ và tên"/>
+            <TextBox 
+                Style="{StaticResource Form-TextBox}"
+                Name="FullName"
+                Text="{Binding Path=FullName, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding ErrorCollection[FullName]}"  Style="{StaticResource Error-Notify}" />
+            
+            <Label
+                Style="{StaticResource Form-Label}"
+                Content="Email"/>
+            <TextBox 
+                Style="{StaticResource Form-TextBox}"
+                Name="Email"
+                Text="{Binding Path=Email, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding ErrorCollection[Email]}"  Style="{StaticResource Error-Notify}" />
+
+            <Label
+                Style="{StaticResource Form-Label}"
+                Content="Mật khẩu"/>
+            <TextBox 
+                Style="{StaticResource Form-TextBox}"
+                Name="Password"
+                Text="{Binding Path=Password, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding ErrorCollection[Password]}"  Style="{StaticResource Error-Notify}" />
+
+            <Label
+                Style="{StaticResource Form-Label}"
+                Content="Ghi chú"/>
+            <TextBox 
+                Name="Note"
+                Style="{StaticResource Form-TextBox-MultipleLines}"
+                Text="{Binding Path=Note, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding ErrorCollection[Note]}"  Style="{StaticResource Error-Notify}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label
+                    Style="{StaticResource Form-Label}"
+                    Content="Tài khoản"/>
+            <TextBox 
+                    Style="{StaticResource Form-TextBox-Readonly}"
+                    Name="Account"
+                    Text="{Binding Path=Account}"/>
+
+            <Label
+                Style="{StaticResource Form-Label}"
+                Content="Số điện thoại"/>
+            <TextBox 
+                Style="{StaticResource Form-TextBox}"
+                Name="PhoneNumber"
+                Text="{Binding Path=PhoneNumber, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding ErrorCollection[PhoneNumber]}"  Style="{StaticResource Error-Notify}" />
+
+            <Label
+                Style="{StaticResource Form-Label}"
+                Content="Hoạt động"/>
+            <CheckBox 
+                Grid.Column="1"
+                Style="{StaticResource Form-CheckBox}"
+                IsChecked="{Binding Path=IsActive, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding ErrorCollection[IsActive]}"  Style="{StaticResource Error-Notify}" />
+
+            <Label
+                Margin="0 3 0 0"
+                Style="{StaticResource Form-Label}"
+                Content="Vai trò"/>
+            <ComboBox  Name="ComboBoxStaffRole" Style="{StaticResource Form-ComboBox}" SelectionChanged="ComboBoxStaffRole_Changed" />
+            <Label
+                    Style="{StaticResource Form-Label}" Margin="0 20 0 0"
+                    Content="Ngày tạo"/>
+            <TextBox 
+                    Style="{StaticResource Form-TextBox-Readonly}"
+                    Name="CreatedDate"
+                    Text="{Binding Path=CreatedDate}"/>
+
+            <Button
+                    Style="{StaticResource Form-Button}" Margin="0 20 0 0"
+                    Click="Update_Click"
+                    >Cập nhật</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

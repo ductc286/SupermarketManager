@@ -16,7 +16,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
             {
                 Account = "Admin",
                 FullName = "Administrator",
-                StaffRole = (int)StaffRole.Administrator,
+                StaffRole = (int)EStaffRole.Administrator,
                 CreatedDate = DateTime.Now,
                 PasswordHash = "matkhau123"
             };
@@ -35,8 +35,9 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     CreatedDate = DateTime.Now,
                     FullName = "Lê Thị Ánh",
                     PasswordHash = "matkhau123",
-                    StaffRole = (int)StaffRole.SaleStaff,
+                    StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
+                    PhoneNumber = "0913259680",
                     Note = "Đang là Sinh viên"
                 },
                 new Staff()
@@ -46,7 +47,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     CreatedDate = DateTime.Now,
                     FullName = "Nguyễn Thị Lương",
                     PasswordHash = "matkhau123",
-                    StaffRole = (int)StaffRole.SaleStaff,
+                    StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
                     Note = ""
                 },
@@ -57,7 +58,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     CreatedDate = DateTime.Now,
                     FullName = "Trương Văn Đoàn",
                     PasswordHash = "matkhau123",
-                    StaffRole = (int)StaffRole.SaleStaff,
+                    StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
                     Note = ""
                 },
@@ -68,7 +69,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     CreatedDate = DateTime.Now,
                     FullName = "Phạm Văn Hải",
                     PasswordHash = "matkhau123",
-                    StaffRole = (int)StaffRole.SaleStaff,
+                    StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
                     Note = ""
                 },
@@ -79,7 +80,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     CreatedDate = DateTime.Now,
                     FullName = "Nguyễn Thị Lương",
                     PasswordHash = "matkhau123",
-                    StaffRole = (int)StaffRole.SaleStaff,
+                    StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = false,
                     Note = ""
                 }

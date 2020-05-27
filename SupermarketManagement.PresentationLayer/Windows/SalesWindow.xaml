@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.Windows"
-        
+        Icon="/Images/system/bgvip.png"
         mc:Ignorable="d"
         Title="SalesWindow" Height="450" Width="800">
     <DockPanel LastChildFill="True">
 
         <Menu DockPanel.Dock="Top" Padding="5">
-            <MenuItem Header="Home"></MenuItem>
+            
             <MenuItem Header="Quản lý đơn bán hàng">
                 <MenuItem Header="{x:Static local:UsecaseStringContants.addSaleBill}" Click="MenuAddSaleBill_Click" />
                 <Separator  />
@@ -22,7 +22,8 @@
                 <Separator  />
                 <MenuItem  Header="Xem danh sách"  Click="MenuListEndOfShift_Click" />
             </MenuItem>
-            
+            <MenuItem Header="{x:Static local:UsecaseStringContants.changePassword}"  Click="MenuChangePassword_Click"></MenuItem>
+
         </Menu>
         <ToolBar DockPanel.Dock="Top">
             <!--<Label>ToolBar: Chức năng này sẽ sớm hoàn thành!</Label>-->
