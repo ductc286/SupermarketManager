@@ -31,6 +31,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             suppliers = _supplierBusiness.GetAll();
             ListSuppliers.ItemsSource = suppliers;
+            ListSuppliers.Items.Refresh();
         }
 
 
@@ -43,8 +44,12 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             }
             else
             {
-                EditSupplierWindow editSupplierWindow = new EditSupplierWindow(supplier);
-                editSupplierWindow.Show();
+                //EditSupplierWindow editSupplierWindow = new EditSupplierWindow(supplier);
+                //editSupplierWindow.Show();
+                EditSupplierUserControl editSupplierUserControl = new EditSupplierUserControl(supplier);
+                DialogWindow dialogWindow = new DialogWindow(editSupplierUserControl, UsecaseStringContants.editSupplier);
+                dialogWindow.ShowDialog();
+                InitializeData();
             }
         }
 

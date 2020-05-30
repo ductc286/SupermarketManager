@@ -53,7 +53,8 @@ namespace SupermarketManagement.BLL.Business
 
         public CurrentStaffViewModel GetStaffViewModel(LoginStaffViewModel loginStaffViewModel)
         {
-            var staff = _staffRepository.Find(filter: s => s.Account == loginStaffViewModel.Account && s.PasswordHash == loginStaffViewModel.Password);
+            var passwordHash = EncodeUtilities.GetPasswordHash(loginStaffViewModel.Password);
+            var staff = _staffRepository.Find(filter: s => s.Account == loginStaffViewModel.Account && s.PasswordHash == passwordHash && s.IsActive);
             //StaffViewModel staffViewModel = Mapper.Map<StaffViewModel>(staff);
             if (staff == null)
             {

@@ -1,9 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SupermarketManagement.Core.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Supermarketmanagement.Core.ViewModels
 {
     public class CategoryViewModel : BaseViewModel
     {
+        public CategoryViewModel() { }
+
+        public CategoryViewModel(Category category)
+        {
+            this.CategoryId = category.CategoryId;
+            this.CategoryName = category.CategoryName;
+            this.Description = category.Description;
+        }
+
         [Key]
         public int CategoryId { get; set; }
 

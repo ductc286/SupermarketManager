@@ -1,6 +1,7 @@
 ﻿using Supermarketmanagement.Core.ViewModels;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
+using SupermarketManagement.Core.Models;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,14 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             _categoryBusiness = new CategoryBusiness();
             this.categoryViewModel = categoryViewModel;
+            InitializeComponent();
+            InitializeData();
+        }
+
+        public EditCategoryUserControl(Category category)
+        {
+            _categoryBusiness = new CategoryBusiness();
+            this.categoryViewModel = new CategoryViewModel(category);
             InitializeComponent();
             InitializeData();
         }

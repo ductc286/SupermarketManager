@@ -60,6 +60,11 @@ namespace Supermarketmanagement.PresentationLayer.Windows
                 MessageBox.Show("Dữ liệu không hợp lệ!", "Login", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void Password_Change(object sender, RoutedEventArgs e)
+        {
+            Password.Text = PasswordBox.Password;
+        }
     }
 
 }

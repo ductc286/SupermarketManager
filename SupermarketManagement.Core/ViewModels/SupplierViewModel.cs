@@ -1,9 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SupermarketManagement.Core.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Supermarketmanagement.Core.ViewModels
 {
     public class SupplierViewModel : BaseViewModel
     {
+
+        public SupplierViewModel() { }
+
+        public SupplierViewModel(Supplier supplier)
+        {
+            this.SupplierId = supplier.SupplierId;
+            this.SupplierName = supplier.SupplierName;
+            this.Description = supplier.Description;
+        }
+
         [Key]
         public int SupplierId { get; set; }
 

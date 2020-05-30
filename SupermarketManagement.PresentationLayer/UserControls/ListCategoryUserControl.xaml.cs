@@ -16,14 +16,12 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     {
 
         private readonly ICategoryBusiness _categoryBusiness;
-        public List<Category> categories;
+        public List<Category> categories = new List<Category>();
         public ListCategoryUserControl()
         {
             InitializeComponent();
             _categoryBusiness = new CategoryBusiness();
             InitializeData();
-            
-            this.DataContext = categories;
         }
 
         /// <summary>
@@ -32,8 +30,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         private void InitializeData()
         {
             categories = _categoryBusiness.GetAll();
+            ListCategories.ItemsSource = null;
             ListCategories.ItemsSource = categories;
-
+            this.DataContext = categories;
         }
 
 
@@ -46,13 +45,19 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             }
             else
             {
-                EditCategoryWindow editCategoryWindow = new EditCategoryWindow(category);
-                var show = editCategoryWindow.ShowDialog();
-                editCategoryWindow.Closed += dialog_Closed;
-                categories = _categoryBusiness.GetAll();
-                this.DataContext = categories;
-                ListCategories.ItemsSource = null;
-                ListCategories.ItemsSource = categories;
+                //EditCategoryWindow editCategoryWindow = new EditCategoryWindow(category);
+                //var show = editCategoryWindow.ShowDialog();
+
+                EditCategoryUserControl editCategoryUserControl = new EditCategoryUserControl(category);
+                DialogWindow dialogWindow = new DialogWindow(editCategoryUserControl, UsecaseStringContants.editCategory, editCategoryUserControl.Width, editCategoryUserControl.Height);
+                dialogWindow.ShowDialog();
+
+                InitializeData();
+                //editCategoryWindow.Closed += dialog_Closed;
+                //categories = _categoryBusiness.GetAll();
+                //this.DataContext = categories;
+                //ListCategories.ItemsSource = null;
+                //ListCategories.ItemsSource = categories;
 
             }
         }

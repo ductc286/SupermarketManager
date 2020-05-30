@@ -1,6 +1,7 @@
 ﻿using Supermarketmanagement.Core.ViewModels;
 using SupermarketManagement.BLL.Business;
 using SupermarketManagement.BLL.IBusiness;
+using SupermarketManagement.Core.Models;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,6 +18,14 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         {
             _supplierBusiness = new SupplierBusiness();
             this.supplierViewModel = supplierViewModel;
+            InitializeComponent();
+            InitializeData();
+        }
+
+        public EditSupplierUserControl(Supplier supplier)
+        {
+            _supplierBusiness = new SupplierBusiness();
+            this.supplierViewModel = new SupplierViewModel(supplier);
             InitializeComponent();
             InitializeData();
         }

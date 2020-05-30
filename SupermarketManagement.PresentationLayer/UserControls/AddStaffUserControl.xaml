@@ -43,8 +43,9 @@
         <Label
             Style="{StaticResource Form-Label}"
             Content="Mật khẩu"/>
+        <PasswordBox x:Name="PasswordBox" PasswordChanged="Password_Change" Style="{StaticResource Form-Password}"/>
         <TextBox 
-            Style="{StaticResource Form-TextBox}"
+            Style="{StaticResource TextBox-Hidden}"
             Name="Password"
             Text="{Binding Path=Password, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="{Binding ErrorCollection[Password]}"  Style="{StaticResource Error-Notify}" />

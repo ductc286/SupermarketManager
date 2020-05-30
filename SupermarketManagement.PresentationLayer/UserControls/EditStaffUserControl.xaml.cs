@@ -54,5 +54,10 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             var item = (ComboBoxItem)ComboBoxStaffRole.SelectedItem;
             staffViewModel.StaffRole = int.Parse(item.Tag.ToString());
         }
+
+        private void Password_Change(object sender, RoutedEventArgs e)
+        {
+            Password.Text = PasswordBox.Password;
+        }
     }
 }
