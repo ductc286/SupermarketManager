@@ -19,11 +19,7 @@ namespace Supermarketmanagement.PresentationLayer.Windows
             //var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
             //StaffGlobal.CurrentStaff = staff;
             #endregion
-            //this.WindowState = WindowState.Maximized;
-
             InitializeComponent();
-            //this.Width = 1300;
-            //this.Height = 720;
             //this.WindowState = WindowState.Maximized;
             InitializeData();
             this.Width = 1300;

@@ -61,7 +61,7 @@ namespace SupermarketManagement.BLL.Business
 
         public List<Supplier> GetAll()
         {
-            return _supplierRepository.GetAll().ToList();
+            return _supplierRepository.GetAll().OrderByDescending(s => s.SupplierId).ToList();
         }
 
         public bool Update(SupplierViewModel entity)

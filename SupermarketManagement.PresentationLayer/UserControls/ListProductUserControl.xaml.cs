@@ -13,12 +13,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     /// </summary>
     public partial class ListProductUserControl : UserControl
     {
-        private readonly IProductBusiness _productBusiness;
+        private IProductBusiness _productBusiness;
         public List<Product> products;
 
         public ListProductUserControl()
         {
-            _productBusiness = new ProductBusiness();
             InitializeComponent();
             InitializeData();
         }
@@ -28,6 +27,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
+            _productBusiness = new ProductBusiness();
             products = _productBusiness.GetAll();
             ListViewProducts.ItemsSource = products;
         }
@@ -43,12 +43,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             }
             else
             {
-                EditProductWindow editProductWindow = new EditProductWindow(product);
-                editProductWindow.Owner = Application.Current.MainWindow; // We must also set the owner for this to work.
-                editProductWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                //editProductWindow.Top = mainWindow.Top + 20;
-
-                editProductWindow.Show();
+                EditProductUserControl editProductUserControl = new EditProductUserControl(product);
+                DialogWindow dialogWindow = new DialogWindow(editProductUserControl, UsecaseStringContants.editProduct, editProductUserControl.Width, editProductUserControl.Height);
+                dialogWindow.ShowDialog();
             }
         }
 
@@ -78,6 +75,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                 }
 
             }
+        }
+
+        private void ButtonReload_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

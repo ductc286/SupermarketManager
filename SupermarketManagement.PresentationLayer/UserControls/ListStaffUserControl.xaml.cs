@@ -14,16 +14,16 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     public partial class ListStaffUserControl : UserControl
     {
         public List<Staff> staffs;
-        private readonly IStaffBusiness _staffBusiness;
+        private IStaffBusiness _staffBusiness;
         public ListStaffUserControl()
         {
-            _staffBusiness = new StaffBusiness();
             InitializeComponent();
             InitializeData();
         }
 
         private void InitializeData()
         {
+            _staffBusiness = new StaffBusiness();
             staffs = _staffBusiness.GetAll();
             this.DataContext = staffs;
             ListStaffs.ItemsSource = staffs;
@@ -52,6 +52,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                 InitializeData();
             }
             
+        }
+
+        private void ButtonReload_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

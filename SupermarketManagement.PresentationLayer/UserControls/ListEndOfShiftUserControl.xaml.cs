@@ -18,7 +18,6 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         public bool CanAprrove { get; set; } = false;
         public ListEndOfShiftUserControl()
         {
-            _endOfShiftBusiness = new EndOfShiftBusiness();
             InitializeComponent();
             InitializeData();
             SetupButton();
@@ -40,6 +39,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
 
         private void InitializeData()
         {
+            _endOfShiftBusiness = new EndOfShiftBusiness();
             endOfShifts = _endOfShiftBusiness.GetAll();
             this.DataContext = endOfShifts;
             ListViewEndOfShifts.ItemsSource = endOfShifts;
@@ -77,6 +77,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                     InitializeData();
                 }
             }
+        }
+
+        private void ButtonReload_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

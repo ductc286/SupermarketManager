@@ -6,9 +6,8 @@
              xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
              xmlns:customTextBox="clr-namespace:Supermarketmanagement.PresentationLayer.Custom"
              mc:Ignorable="d" 
-             Width="auto"
-             Height="auto"
-             MinWidth="500"
+             Width="1200"
+             Height="600"
              HorizontalAlignment="Center"
              VerticalAlignment="Center">
     <StackPanel>

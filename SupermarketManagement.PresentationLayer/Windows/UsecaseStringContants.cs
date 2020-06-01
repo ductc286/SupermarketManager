@@ -15,10 +15,14 @@
         public const string listCategory = "DS thể loại";
 
         public const string addPurchaseBill = "Thêm đơn nhập hàng";
+        public const string editPurchaseBill = "Sửa đơn nhập hàng";
         public const string listPurchaseBill = "DS đơn nhập hàng";
+        public const string detailPurchaseBill = "Chi tiết đơn nhập hàng";
 
         public const string addSaleBill = "Thêm đơn bán hàng";
+        public const string editSaleBill = "Sửa đơn bán hàng";
         public const string listSaleBill = "DS đơn bán hàng";
+        public const string detailSaleBill = "Chi tiết đơn bán hàng";
 
         public const string addEndOfShift = "Thêm phiếu chốt ca";
         public const string listEndOfShift = "DS phiếu chốt ca";

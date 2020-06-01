@@ -14,12 +14,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     public partial class ListSaleBillUserControl : UserControl
     {
 
-        private readonly ISaleBillBusiness _saleBillBusiness;
+        private ISaleBillBusiness _saleBillBusiness;
         public List<SaleBill> saleBills;
         public ListSaleBillUserControl()
         {
             InitializeComponent();
-            _saleBillBusiness = new SaleBillBusiness();
             InitializeData();
         }
 
@@ -28,6 +27,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
+            _saleBillBusiness = new SaleBillBusiness();
             saleBills = _saleBillBusiness.GetAll();
             DataContext = saleBills;
             ListSaleBills.ItemsSource = saleBills;
@@ -44,8 +44,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             var saleBill = (SaleBill)ListSaleBills.SelectedItem;
             if (saleBill != null)
             {
-                DetailsWindow detailsWindow = new DetailsWindow(saleBill);
-                detailsWindow.ShowDialog();
+                DetailSaleBillUserControl detailSaleBillUserControl = new DetailSaleBillUserControl(saleBill);
+                DialogWindow dialogWindow = new DialogWindow(detailSaleBillUserControl, UsecaseStringContants.detailSaleBill, detailSaleBillUserControl.Width, detailSaleBillUserControl.Height);
+                dialogWindow.ShowDialog();
             }
 
         }
@@ -63,9 +64,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             }
             else if (saleBill != null)
             {
-
-                EditSaleBillWindow editSaleBillWindow = new EditSaleBillWindow(saleBill);
-                editSaleBillWindow.ShowDialog();
+                EditSaleBillUserControl editSaleBillUserControl = new EditSaleBillUserControl(saleBill);
+                DialogWindow dialogWindow = new DialogWindow(editSaleBillUserControl, UsecaseStringContants.editSaleBill, editSaleBillUserControl.Width, editSaleBillUserControl.Height);
+                dialogWindow.ShowDialog();
             }
         }
 
@@ -90,6 +91,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                 }
                 
             }
+        }
+
+        private void ButtonReload_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

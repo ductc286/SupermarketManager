@@ -15,12 +15,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     public partial class ListCategoryUserControl : UserControl
     {
 
-        private readonly ICategoryBusiness _categoryBusiness;
+        private ICategoryBusiness _categoryBusiness;
         public List<Category> categories = new List<Category>();
         public ListCategoryUserControl()
         {
             InitializeComponent();
-            _categoryBusiness = new CategoryBusiness();
             InitializeData();
         }
 
@@ -29,8 +28,8 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
+            _categoryBusiness = new CategoryBusiness();
             categories = _categoryBusiness.GetAll();
-            ListCategories.ItemsSource = null;
             ListCategories.ItemsSource = categories;
             this.DataContext = categories;
         }
@@ -51,14 +50,7 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                 EditCategoryUserControl editCategoryUserControl = new EditCategoryUserControl(category);
                 DialogWindow dialogWindow = new DialogWindow(editCategoryUserControl, UsecaseStringContants.editCategory, editCategoryUserControl.Width, editCategoryUserControl.Height);
                 dialogWindow.ShowDialog();
-
                 InitializeData();
-                //editCategoryWindow.Closed += dialog_Closed;
-                //categories = _categoryBusiness.GetAll();
-                //this.DataContext = categories;
-                //ListCategories.ItemsSource = null;
-                //ListCategories.ItemsSource = categories;
-
             }
         }
         private void dialog_Closed(object sender, System.EventArgs e)
@@ -96,6 +88,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                 }
 
             }
+        }
+
+        private void ButtonReload_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

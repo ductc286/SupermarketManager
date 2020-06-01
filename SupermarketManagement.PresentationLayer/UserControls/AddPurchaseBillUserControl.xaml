@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Supermarketmanagement.PresentationLayer.UserControls"
              xmlns:customTextBox="clr-namespace:Supermarketmanagement.PresentationLayer.Custom"
              mc:Ignorable="d" 
+             
              d:DesignHeight="550" Width="1080.5">
     
     <Grid>

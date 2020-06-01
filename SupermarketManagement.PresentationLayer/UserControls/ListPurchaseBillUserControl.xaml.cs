@@ -14,13 +14,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     public partial class ListPurchaseBillUserControl : UserControl
     {
 
-        private readonly IPurchaseBillBusiness _purchaseBillBusiness;
+        private IPurchaseBillBusiness _purchaseBillBusiness;
         public List<PurchaseBill> purchaseBills;
         public ListPurchaseBillUserControl()
         {
             InitializeComponent();
-            _purchaseBillBusiness = new PurchaseBillBusiness();
-            purchaseBills = _purchaseBillBusiness.GetAll();
             InitializeData();
         }
 
@@ -29,12 +27,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
+            _purchaseBillBusiness = new PurchaseBillBusiness();
+            purchaseBills = _purchaseBillBusiness.GetAll();
             DataContext = purchaseBills;
-            LoadList(purchaseBills);
-        }
-
-        public void LoadList(List<PurchaseBill> purchaseBills)
-        {
             ListPurchaseBills.ItemsSource = purchaseBills;
         }
 
@@ -43,8 +38,9 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             var purchaseBill = (PurchaseBill)ListPurchaseBills.SelectedItem;
             if (purchaseBill != null)
             {
-                EditPurchaseBillWindow editPurchaseBillWindow = new EditPurchaseBillWindow(purchaseBill);
-                editPurchaseBillWindow.ShowDialog();
+                EditPurchaseBillUserControl editPurchaseBillUserControl = new EditPurchaseBillUserControl(purchaseBill);
+                DialogWindow dialogWindow = new DialogWindow(editPurchaseBillUserControl, UsecaseStringContants.editPurchaseBill, editPurchaseBillUserControl.Width, editPurchaseBillUserControl.Height);
+                dialogWindow.ShowDialog();
             }
         }
 
@@ -53,10 +49,16 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             var purchaseBill = (PurchaseBill)ListPurchaseBills.SelectedItem;
             if (purchaseBill != null)
             {
-                DetailPurchaseBillUserWindow detailPurchaseBillUserWindow = new DetailPurchaseBillUserWindow(purchaseBill);
-                detailPurchaseBillUserWindow.ShowDialog();
+                DetailPurchaseBillUserControl detailPurchaseBillUserControl = new DetailPurchaseBillUserControl(purchaseBill);
+                DialogWindow dialogWindow = new DialogWindow(detailPurchaseBillUserControl, UsecaseStringContants.detailPurchaseBill, detailPurchaseBillUserControl.Width, detailPurchaseBillUserControl.Height);
+                dialogWindow.ShowDialog();
             }
             
+        }
+
+        private void ButtonReload_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

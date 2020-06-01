@@ -14,13 +14,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
     /// </summary>
     public partial class ListSupplierUserControl : UserControl
     {
-        private readonly ISupplierBusiness _supplierBusiness;
+        private ISupplierBusiness _supplierBusiness;
         public List<Supplier> suppliers;
         public ListSupplierUserControl()
         {
             InitializeComponent();
-            _supplierBusiness = new SupplierBusiness();
-            
             InitializeData();
         }
 
@@ -29,9 +27,10 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
         /// </summary>
         private void InitializeData()
         {
+            _supplierBusiness = new SupplierBusiness();
             suppliers = _supplierBusiness.GetAll();
             ListSuppliers.ItemsSource = suppliers;
-            ListSuppliers.Items.Refresh();
+            //ListSuppliers.Items.Refresh();
         }
 
 
@@ -44,8 +43,6 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
             }
             else
             {
-                //EditSupplierWindow editSupplierWindow = new EditSupplierWindow(supplier);
-                //editSupplierWindow.Show();
                 EditSupplierUserControl editSupplierUserControl = new EditSupplierUserControl(supplier);
                 DialogWindow dialogWindow = new DialogWindow(editSupplierUserControl, UsecaseStringContants.editSupplier);
                 dialogWindow.ShowDialog();
@@ -79,6 +76,11 @@ namespace Supermarketmanagement.PresentationLayer.UserControls
                 }
 
             }
+        }
+
+        private void ButtonReload_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

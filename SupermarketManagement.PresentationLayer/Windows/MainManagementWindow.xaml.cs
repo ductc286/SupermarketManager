@@ -4,10 +4,8 @@ using Supermarketmanagement.PresentationLayer.Common;
 using Supermarketmanagement.PresentationLayer.Custom;
 using Supermarketmanagement.PresentationLayer.UserControls;
 using SupermarketManagement.BLL.Business;
-using SupermarketManagement.BLL.IBusiness;
 using System;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Supermarketmanagement.PresentationLayer.Windows
 {
@@ -23,9 +21,11 @@ namespace Supermarketmanagement.PresentationLayer.Windows
             //var staff = staffBusiness.GetStaffViewModel(new LoginStaffViewModel() { Account = "Admin", Password = "matkhau123" });
             //StaffGlobal.CurrentStaff = staff;
             #endregion
-            this.WindowState = WindowState.Maximized;
+            //this.WindowState = WindowState.Maximized;
             InitializeComponent();
             InitializeData();
+            this.Width = 1300;
+            this.Height = 720;
         }
         /// <summary>
         /// List the methods needed for data initialization
@@ -239,11 +239,11 @@ namespace Supermarketmanagement.PresentationLayer.Windows
             //If not found tab was AddCategory tabitem, add and selected
             else
             {
-                AddSupplierUserControl addSupplierUserControl = new AddSupplierUserControl();
+                AddCategoryUserControl addCategoryUserControl = new AddCategoryUserControl();
                 CustomTabItem customTabItem = new CustomTabItem()
                 {
                     Title = UsecaseStringContants.addCategory,
-                    Content = addSupplierUserControl
+                    Content = addCategoryUserControl
                 };
                 MainTabControl.Items.Add(customTabItem);
                 MainTabControl.SelectedItem = customTabItem;

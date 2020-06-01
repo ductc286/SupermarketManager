@@ -56,6 +56,7 @@
                         Click="Open_DetailPurchaseBill"
                         >Chi tiết</Button>
                 <Button Style="{StaticResource Form-Button}">Xóa</Button>
+                <Button Style="{StaticResource Form-Button}" Click="ButtonReload_Click">Tải lại</Button>
 
             </StackPanel>
     </Grid>

@@ -61,6 +61,7 @@
             <Button Style="{StaticResource Form-Button}"
                     Name="Button_Approve"
                     Click="Approve_Click">Phê duyệt</Button>
+            <Button Style="{StaticResource Form-Button}" Click="ButtonReload_Click">Tải lại</Button>
 
         </StackPanel>
 

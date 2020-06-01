@@ -65,6 +65,7 @@
             <Button Style="{StaticResource Form-Button}"
                     Name="Button_Delete"
                     Click="Delete_Click">Xóa</Button>
+            <Button Style="{StaticResource Form-Button}" Click="ButtonReload_Click">Tải lại</Button>
 
         </StackPanel>
     </Grid>

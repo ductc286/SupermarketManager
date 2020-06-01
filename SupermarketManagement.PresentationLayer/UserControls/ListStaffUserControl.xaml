@@ -60,7 +60,7 @@
             <Button Style="{StaticResource Form-Button}"
                         Click="OpenWindow_Edit"
                         >Sửa</Button>
-            
+            <Button Style="{StaticResource Form-Button}" Click="ButtonReload_Click">Tải lại</Button>
 
         </StackPanel>
     </Grid>

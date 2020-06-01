@@ -12,13 +12,15 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
         {
             //// Seed data in here
             #region Component which sure is need for this system
+            const string password = "matkhau123";
+            string passwordHash = EncodeUtilities.GetPasswordHash(password);
             var staff = new Staff()
             {
                 Account = "Admin",
                 FullName = "Administrator",
                 StaffRole = (int)EStaffRole.Administrator,
                 CreatedDate = DateTime.Now,
-                PasswordHash = "matkhau123"
+                PasswordHash = passwordHash
             };
             context.Staffs.Add(staff);
             context.SaveChanges();
@@ -34,7 +36,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     Email = "anhlt@gmail.com",
                     CreatedDate = DateTime.Now,
                     FullName = "Lê Thị Ánh",
-                    PasswordHash = "matkhau123",
+                    PasswordHash = passwordHash,
                     StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
                     PhoneNumber = "0913259680",
@@ -46,7 +48,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     Email = "luongnt@gmail.com",
                     CreatedDate = DateTime.Now,
                     FullName = "Nguyễn Thị Lương",
-                    PasswordHash = "matkhau123",
+                    PasswordHash = passwordHash,
                     StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
                     Note = ""
@@ -57,7 +59,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     Email = "doantv@gmail.com",
                     CreatedDate = DateTime.Now,
                     FullName = "Trương Văn Đoàn",
-                    PasswordHash = "matkhau123",
+                    PasswordHash = passwordHash,
                     StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
                     Note = ""
@@ -68,7 +70,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     Email = "haipm@gmail.com",
                     CreatedDate = DateTime.Now,
                     FullName = "Phạm Văn Hải",
-                    PasswordHash = "matkhau123",
+                    PasswordHash = passwordHash,
                     StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = true,
                     Note = ""
@@ -79,7 +81,7 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                     Email = "luongnt@gmail.com",
                     CreatedDate = DateTime.Now,
                     FullName = "Nguyễn Thị Lương",
-                    PasswordHash = "matkhau123",
+                    PasswordHash = passwordHash,
                     StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = false,
                     Note = ""
