@@ -77,10 +77,10 @@ namespace SupermarketManagement.DataAccessLayer.DatabaseContext
                 },
                 new Staff()
                 {
-                    Account = "LuongNT",
-                    Email = "luongnt@gmail.com",
+                    Account = "BachPV",
+                    Email = "bachpv@gmail.com",
                     CreatedDate = DateTime.Now,
-                    FullName = "Nguyễn Thị Lương",
+                    FullName = "Phạm Văn Bách",
                     PasswordHash = passwordHash,
                     StaffRole = (int)EStaffRole.SaleStaff,
                     IsActive = false,
