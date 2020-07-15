@@ -54,11 +54,17 @@ namespace SupermarketManagement.BLL.Business
             DateTime toDatetime = new DateTime(entity.CreatedDate.Year, entity.CreatedDate.Month, entity.CreatedDate.Day, entity.To, 0, 0);
 
             var listSaleBill = _saleBillRepository.GetAll().Where(s => !s.IsAprroved
-                && s.CreatedDate >= fromDatetime && s.CreatedDate <= toDatetime);
-            foreach (var item in listSaleBill)
+                && s.CreatedDate >= fromDatetime && s.CreatedDate <= toDatetime).ToList();
+            //foreach (var item in listSaleBill)
+            //{
+            //    item.IsAprroved = true;
+            //    _saleBillRepository.Update(item);
+            //}
+            
+            for (int i = 0; i < listSaleBill.Count(); i++)
             {
-                item.IsAprroved = true;
-                _saleBillRepository.Update(item);
+                listSaleBill[i].IsAprroved = true;
+                _saleBillRepository.Update(listSaleBill[i]);
             }
         }
 

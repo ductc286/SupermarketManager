@@ -20,10 +20,10 @@ namespace Supermarketmanagement.PresentationLayer.Windows
             //StaffGlobal.CurrentStaff = staff;
             #endregion
             InitializeComponent();
-            //this.WindowState = WindowState.Maximized;
+            this.WindowState = WindowState.Maximized;
             InitializeData();
-            this.Width = 1300;
-            this.Height = 720;
+            //this.Width = 1300;
+            //this.Height = 720;
 
         }
 
